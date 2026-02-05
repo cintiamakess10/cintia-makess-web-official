@@ -2,116 +2,145 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<title>Cintia Makess</title>
+<title>Cintia Makess • Tudo por R$10</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:Arial, sans-serif;
+:root{
+  --pink:#ff4f9a;
+  --pink-dark:#e63b84;
+  --green:#1abc9c;
+  --bg:#f6f6f6;
+  --card:#ffffff;
+  --text:#333;
+  --muted:#777;
 }
 
-body{
-  background:#fafafa;
-  color:#333;
-}
+*{box-sizing:border-box;margin:0;padding:0;font-family:Arial,Helvetica,sans-serif}
+
+body{background:var(--bg);color:var(--text)}
 
 header{
-  text-align:center;
-  padding:25px;
-  background:linear-gradient(135deg,#ff7eb3,#ff758c);
+  background:linear-gradient(135deg,var(--pink),var(--pink-dark));
   color:#fff;
-}
-
-header h1{
-  font-size:28px;
-}
-
-header p{
-  margin-top:5px;
-  font-size:14px;
-}
-
-.hero{
+  padding:30px 15px;
   text-align:center;
-  padding:40px 20px;
-  animation:fadeDown 1s ease;
 }
 
-.hero h2{
-  margin-bottom:10px;
+.hero{text-align:center;padding:30px}
+
+.filters{text-align:center;margin-bottom:20px}
+.filters button{
+  margin:5px;
+  padding:8px 14px;
+  border:none;
+  border-radius:20px;
+  cursor:pointer;
+}
+.filters button.active{
+  background:var(--pink);
+  color:#fff;
 }
 
 .products{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
   gap:20px;
-  padding:30px;
+  padding:20px;
 }
 
 .card{
   background:#fff;
   border-radius:16px;
-  padding:15px;
-  box-shadow:0 8px 20px rgba(0,0,0,.08);
-  transition:.3s;
-  animation:fadeUp .8s ease;
-}
-
-.card:hover{
-  transform:translateY(-8px) scale(1.02);
-  box-shadow:0 15px 30px rgba(0,0,0,.15);
+  box-shadow:0 10px 25px rgba(0,0,0,.08);
+  overflow:hidden;
+  position:relative;
+  animation:fadeUp .5s ease;
 }
 
 .card img{
   width:100%;
+  height:200px;
+  object-fit:cover;
+}
+
+.card-content{padding:15px}
+
+.price{color:var(--green);font-weight:bold;margin:8px 0}
+
+.badge{
+  position:absolute;
+  top:10px;
+  left:10px;
+  background:#ffcc00;
+  padding:5px 10px;
   border-radius:12px;
+  font-size:12px;
 }
 
-.card h3{
-  font-size:15px;
-  margin:10px 0;
-}
+.actions{display:flex;gap:8px;margin-top:10px}
 
-.price{
-  color:#2ecc71;
-  font-weight:bold;
-  margin-bottom:10px;
-}
-
-.buy{
-  background:#ff758c;
-  color:#fff;
-  padding:10px;
+.actions button{
+  flex:1;
+  border:none;
+  padding:8px;
   border-radius:20px;
-  text-align:center;
   cursor:pointer;
-  transition:.3s;
 }
 
-.buy:hover{
-  background:#ff4f73;
-  transform:scale(1.05);
-}
+.buy{background:var(--pink);color:#fff}
+.details{background:#eee}
 
-footer{
-  text-align:center;
-  padding:20px;
+#cart{
+  position:fixed;
+  right:0;top:0;
+  width:300px;
+  height:100%;
   background:#fff;
-  font-size:14px;
+  box-shadow:-5px 0 20px rgba(0,0,0,.2);
+  padding:15px;
+  display:none;
+  flex-direction:column;
+  z-index:10;
 }
 
-/* Animações */
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.6);
+  display:none;
+  align-items:center;
+  justify-content:center;
+}
+
+.modal-content{
+  background:#fff;
+  padding:20px;
+  border-radius:15px;
+  width:300px;
+}
+
+.reviews{
+  background:#fff;
+  padding:20px;
+  margin:20px;
+  border-radius:15px;
+}
+
+.whats{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#25d366;
+  color:#fff;
+  padding:15px 18px;
+  border-radius:50px;
+  cursor:pointer;
+}
+
 @keyframes fadeUp{
-  from{opacity:0; transform:translateY(30px);}
-  to{opacity:1; transform:translateY(0);}
-}
-
-@keyframes fadeDown{
-  from{opacity:0; transform:translateY(-30px);}
-  to{opacity:1; transform:translateY(0);}
+  from{opacity:0;transform:translateY(20px)}
+  to{opacity:1;transform:translateY(0)}
 }
 </style>
 </head>
@@ -119,56 +148,118 @@ footer{
 <body>
 
 <header>
-  <h1>Cintia Makess</h1>
-  <p>✨ Beleza acessível • Tudo por R$ 10,00 ✨</p>
+<h1>Cintia Makess</h1>
+<p>Tudo por R$ 10,00 • Atendimento humano</p>
 </header>
 
 <section class="hero">
-  <h2>Beleza simples para todas as idades</h2>
-  <p>Maquiagem, skincare e acessórios com preço único</p>
+<h2>Escolha seus produtos</h2>
 </section>
 
-<section class="products" id="products"></section>
+<div class="filters">
+<button class="active" onclick="setCat('all')">Todos</button>
+<button onclick="setCat('Maquiagem')">Maquiagem</button>
+<button onclick="setCat('Skincare')">Skincare</button>
+<button onclick="setCat('Acessórios')">Acessórios</button>
+<button onclick="setCat('Papelaria')">Papelaria</button>
+</div>
 
-<footer>
-  <p>📞 Atendimento humano: <strong>+55 15 97407-2640</strong></p>
-  <p>💖 Obrigada por confiar na Cintia Makess</p>
-</footer>
+<div class="products" id="products"></div>
+
+<div id="cart">
+<h3>Carrinho</h3>
+<div id="cartItems"></div>
+<p>Total: <strong>R$ <span id="total">0</span></strong></p>
+<button onclick="closeCart()">Fechar</button>
+</div>
+
+<div class="modal" id="modal">
+<div class="modal-content">
+<h3 id="mName"></h3>
+<p id="mDesc"></p>
+<p><strong>R$ 10,00</strong></p>
+<button onclick="addCart(current)">Comprar</button>
+<button onclick="closeModal()">Fechar</button>
+</div>
+</div>
+
+<div class="reviews">
+<h3>Avaliações</h3>
+<input id="revText" placeholder="Comentário">
+<select id="revStar">
+<option>5</option><option>4</option><option>3</option><option>2</option><option>1</option>
+</select>
+<button onclick="addReview()">Enviar</button>
+<div id="reviewList"></div>
+</div>
+
+<div class="whats" onclick="openWhats()">💬 WhatsApp</div>
 
 <script>
-const products = [
-  {name:"Água Micelar de Camomila", img:"images/micelar-camomila.jpg"},
-  {name:"Bruma Fixadora Ácido Hialurônico", img:"images/bruma-200.jpg"},
-  {name:"Bruma Fixadora de Melancia", img:"images/bruma-melancia.jpg"},
-  {name:"Creme Área dos Olhos Banana", img:"images/creme-olhos-banana.jpg"},
-  {name:"Creme Área dos Olhos Pitaya", img:"images/creme-olhos-pitaya.jpg"},
-  {name:"Base Líquida Angels", img:"images/base-angel.jpg"},
-  {name:"Base Matte à Prova d’Água", img:"images/base-matte-45.jpg"},
-  {name:"Corretivo e Contorno", img:"images/corretivo-contorno.jpg"},
-  {name:"Blush Líquido", img:"images/blush-liquido.jpg"},
-  {name:"Batom Líquido Mood", img:"images/batom-mood.jpg"},
-  {name:"Blindagem 3 em 1", img:"images/blindagem-3em1.jpg"},
-  {name:"Cílios Postiços 6D", img:"images/cilios-6d.jpg"},
-  {name:"Cílios Postiços 8D", img:"images/cilios-8d.jpg"},
-  {name:"Cola de Cílios Transparente", img:"images/cola-cilios-7ml.jpg"},
-  {name:"Cola de Cílios à Prova d’Água", img:"images/cola-cilios-prova-agua-7ml.jpg"},
-  {name:"Boob Tape", img:"images/boob-tape.jpg"},
-  {name:"Colares Dourados Variados", img:"images/colares-dourados.jpg"},
-  {name:"Bobbie Goods Cards e Canetinhas", img:"images/bobbie-goods.jpg"}
+const products=[
+ {id:1,name:"Cílios Postiços 6D",cat:"Maquiagem",stock:2,desc:"Volume e definição",img:"images/cilios-6d.jpg"},
+ {id:2,name:"Cílios Postiços 8D",cat:"Maquiagem",stock:2,desc:"Volume intenso",img:"images/cilios-8d.jpg"},
+ {id:3,name:"Bruma Melancia",cat:"Skincare",stock:6,desc:"Refrescante",img:"images/bruma-melancia.jpg"},
+ {id:4,name:"Água Micelar Camomila",cat:"Skincare",stock:10,desc:"Limpeza suave",img:"images/micelar-camomila.jpg"},
+ {id:5,name:"Boob Tape",cat:"Acessórios",stock:1,desc:"Sustentação",img:"images/boob-tape.jpg"},
+ {id:6,name:"Bobbie Goods",cat:"Papelaria",stock:4,desc:"Criativo",img:"images/bobbie-goods.jpg"}
 ];
 
-const container = document.getElementById("products");
+let cart={},current=null,filter="all";
 
-products.forEach(p=>{
-  container.innerHTML += `
-    <div class="card">
-      <img src="${p.img}">
-      <h3>${p.name}</h3>
-      <div class="price">R$ 10,00</div>
-      <div class="buy">Quero esse 💖</div>
-    </div>
-  `;
+function render(){
+const box=document.getElementById("products");
+box.innerHTML="";
+products.filter(p=>filter==="all"||p.cat===filter).forEach(p=>{
+box.innerHTML+=`
+<div class="card">
+${p.stock<=2?'<div class="badge">Últimas</div>':''}
+<img src="${p.img}">
+<div class="card-content">
+<h3>${p.name}</h3>
+<div class="price">R$ 10,00</div>
+<div class="actions">
+<button class="buy" onclick="addCart(${p.id})">Comprar</button>
+<button class="details" onclick="openModal(${p.id})">Detalhes</button>
+</div>
+</div>
+</div>`;
 });
+}
+
+function addCart(id){
+cart[id]=(cart[id]||0)+1;
+updateCart();
+}
+
+function updateCart(){
+document.getElementById("cart").style.display="flex";
+const items=document.getElementById("cartItems");
+items.innerHTML="";
+let total=0;
+for(let id in cart){
+const p=products.find(x=>x.id==id);
+items.innerHTML+=`<div>${p.name} x${cart[id]}</div>`;
+total+=cart[id]*10;
+}
+document.getElementById("total").innerText=total;
+}
+
+function closeCart(){document.getElementById("cart").style.display="none"}
+function openModal(id){
+current=id;
+const p=products.find(x=>x.id==id);
+document.getElementById("mName").innerText=p.name;
+document.getElementById("mDesc").innerText=p.desc;
+document.getElementById("modal").style.display="flex";
+}
+function closeModal(){document.getElementById("modal").style.display="none"}
+function setCat(c){filter=c;render()}
+function openWhats(){window.open("https://wa.me/5515974072640")}
+function addReview(){
+reviewList.innerHTML+=`<p>⭐ ${revStar.value} - ${revText.value}</p>`;
+}
+render();
 </script>
 
 </body>
