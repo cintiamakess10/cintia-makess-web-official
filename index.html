@@ -1,1564 +1,175 @@
-<!doctype html>
-<html lang="pt-br">
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Cintia Makess • Tudo por R$ 10,00</title>
-  <meta name="description" content="Cintia Makess — Tudo por R$ 10,00. Compra rápida, atendimento humano no WhatsApp e avaliações." />
-  <style>
-    :root{
-      --bg:#0b0b10;
-      --card:#12121a;
-      --card2:#151524;
-      --muted:#a8a8b8;
-      --txt:#f2f2f8;
-      --brand:#ff4fd8;
-      --brand2:#7c4dff;
-      --ok:#2ee59d;
-      --warn:#ffcc66;
-      --danger:#ff5c7a;
-      --stroke:rgba(255,255,255,.10);
-      --shadow: 0 14px 45px rgba(0,0,0,.45);
-      --shadow2: 0 10px 26px rgba(0,0,0,.28);
-      --radius: 18px;
-      --radius2: 26px;
-      --max: 1180px;
-    }
+<meta charset="UTF-8">
+<title>Cintia Makess</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-      background:
-        radial-gradient(900px 380px at 10% 0%, rgba(255,79,216,.22), transparent 65%),
-        radial-gradient(850px 420px at 95% 10%, rgba(124,77,255,.20), transparent 65%),
-        radial-gradient(900px 520px at 50% 95%, rgba(46,229,157,.10), transparent 65%),
-        var(--bg);
-      color:var(--txt);
-      overflow-x:hidden;
-    }
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial, sans-serif;
+}
 
-    a{color:inherit}
-    .container{max-width:var(--max); margin:0 auto; padding:0 16px}
-    .row{display:flex; gap:12px; align-items:center; flex-wrap:wrap}
-    .spacer{flex:1}
-    .muted{color:var(--muted)}
-    .sr{position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden}
+body{
+  background:#fafafa;
+  color:#333;
+}
 
-    /* Topbar */
-    .topbar{
-      position:sticky; top:0; z-index:30;
-      background:rgba(11,11,16,.55);
-      backdrop-filter: blur(14px);
-      border-bottom:1px solid var(--stroke);
-    }
-    .topbar .inner{display:flex; align-items:center; gap:12px; padding:12px 0}
-    .brand{
-      display:flex; align-items:center; gap:10px;
-      font-weight:800; letter-spacing:.3px;
-    }
-    .logo{
-      width:38px; height:38px; border-radius:12px;
-      background:
-        radial-gradient(14px 14px at 30% 30%, rgba(255,255,255,.55), transparent 60%),
-        linear-gradient(135deg, var(--brand), var(--brand2));
-      box-shadow: 0 12px 28px rgba(255,79,216,.20);
-    }
-    .pill{
-      border:1px solid var(--stroke);
-      background:rgba(255,255,255,.04);
-      padding:8px 12px;
-      border-radius:999px;
-      font-size:13px;
-      color:rgba(255,255,255,.86);
-    }
+header{
+  text-align:center;
+  padding:25px;
+  background:linear-gradient(135deg,#ff7eb3,#ff758c);
+  color:#fff;
+}
 
-    /* Buttons */
-    .btn{
-      border:0; cursor:pointer;
-      border-radius:14px;
-      padding:12px 14px;
-      color:var(--txt);
-      background:rgba(255,255,255,.06);
-      border:1px solid var(--stroke);
-      transition: transform .18s ease, box-shadow .18s ease, background .18s ease, border-color .18s ease;
-      user-select:none;
-    }
-    .btn:hover{transform: translateY(-1px); box-shadow: var(--shadow2); background:rgba(255,255,255,.08)}
-    .btn:active{transform: translateY(0px) scale(.99)}
-    .btn-primary{
-      background: linear-gradient(135deg, var(--brand), var(--brand2));
-      border-color: transparent;
-      box-shadow: 0 18px 48px rgba(124,77,255,.25);
-      font-weight:800;
-    }
-    .btn-primary:hover{box-shadow: 0 24px 60px rgba(124,77,255,.32)}
-    .btn-ok{
-      background: linear-gradient(135deg, rgba(46,229,157,.95), rgba(46,229,157,.55));
-      border-color: transparent;
-      color:#07110d;
-      font-weight:900;
-    }
-    .btn-ghost{background:transparent}
-    .btn-danger{
-      background: rgba(255,92,122,.08);
-      border-color: rgba(255,92,122,.35);
-      color:#ffd2dc;
-    }
-    .btn-whats{
-      background: rgba(46,229,157,.10);
-      border-color: rgba(46,229,157,.40);
-      font-weight:900;
-    }
+header h1{
+  font-size:28px;
+}
 
-    /* Fancy pulse for buy buttons */
-    @keyframes pulseGlow{
-      0%{box-shadow: 0 0 0 rgba(255,79,216,0), 0 0 0 rgba(124,77,255,0)}
-      50%{box-shadow: 0 0 0 10px rgba(255,79,216,.06), 0 0 0 22px rgba(124,77,255,.04)}
-      100%{box-shadow: 0 0 0 rgba(255,79,216,0), 0 0 0 rgba(124,77,255,0)}
-    }
-    .btn-buy{
-      background: linear-gradient(135deg, var(--brand), var(--brand2));
-      border-color: transparent;
-      font-weight:900;
-      width:100%;
-      animation: pulseGlow 2.2s ease-in-out infinite;
-    }
+header p{
+  margin-top:5px;
+  font-size:14px;
+}
 
-    /* Hero */
-    .hero{padding:22px 0 10px}
-    .heroCard{
-      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
-      border:1px solid var(--stroke);
-      border-radius: var(--radius2);
-      box-shadow: var(--shadow);
-      overflow:hidden;
-      position:relative;
-    }
-    .heroCard:before{
-      content:"";
-      position:absolute; inset:-2px;
-      background:
-        radial-gradient(550px 220px at 10% 10%, rgba(255,79,216,.30), transparent 60%),
-        radial-gradient(620px 260px at 92% 28%, rgba(124,77,255,.25), transparent 60%);
-      filter: blur(20px);
-      opacity:.7;
-      pointer-events:none;
-    }
-    .heroInner{position:relative; padding:22px}
-    .hero h1{
-      margin:0;
-      font-size: clamp(26px, 4vw, 40px);
-      line-height:1.05;
-      letter-spacing:.2px;
-    }
-    .hero p{margin:10px 0 0; color:rgba(255,255,255,.80); max-width: 720px}
-    .heroActions{margin-top:14px; display:flex; gap:10px; flex-wrap:wrap; align-items:center}
+.hero{
+  text-align:center;
+  padding:40px 20px;
+  animation:fadeDown 1s ease;
+}
 
-    /* Search + chips */
-    .toolbar{padding:10px 0 12px}
-    .searchWrap{
-      display:flex; gap:10px; flex-wrap:wrap; align-items:center;
-      margin-top:10px;
-    }
-    .search{
-      flex:1; min-width: 230px;
-      display:flex; gap:10px; align-items:center;
-      background: rgba(255,255,255,.05);
-      border:1px solid var(--stroke);
-      border-radius: 16px;
-      padding:10px 12px;
-    }
-    .search input{
-      width:100%;
-      border:0; outline:0;
-      background:transparent;
-      color:var(--txt);
-      font-size:14px;
-    }
-    .chips{display:flex; gap:8px; flex-wrap:wrap; margin-top:10px}
-    .chip{
-      border:1px solid var(--stroke);
-      background: rgba(255,255,255,.04);
-      color:rgba(255,255,255,.86);
-      padding:8px 10px;
-      border-radius:999px;
-      cursor:pointer;
-      transition: transform .16s ease, background .16s ease, border-color .16s ease;
-      font-size:13px;
-    }
-    .chip:hover{transform: translateY(-1px); background: rgba(255,255,255,.06)}
-    .chip.active{
-      background: rgba(255,79,216,.12);
-      border-color: rgba(255,79,216,.35);
-    }
+.hero h2{
+  margin-bottom:10px;
+}
 
-    /* Sections */
-    .sectionTitle{
-      display:flex; align-items:flex-end; gap:10px;
-      margin: 16px 0 10px;
-    }
-    .sectionTitle h2{margin:0; font-size:18px}
-    .sectionTitle .muted{font-size:13px}
+.products{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+  padding:30px;
+}
 
-    /* Grid */
-    .grid{
-      display:grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap:12px;
-      padding-bottom: 30px;
-    }
-    .card{
-      grid-column: span 3;
-      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
-      border:1px solid var(--stroke);
-      border-radius: var(--radius);
-      overflow:hidden;
-      box-shadow: var(--shadow2);
-      transform: translateY(10px);
-      opacity:0;
-      transition: transform .45s cubic-bezier(.2,.8,.2,1), opacity .45s ease, border-color .2s ease;
-      position:relative;
-    }
-    .card.in{transform: translateY(0); opacity:1}
-    .card:hover{border-color: rgba(255,79,216,.26)}
-    .thumb{
-      aspect-ratio: 4 / 3;
-      background: rgba(255,255,255,.03);
-      display:flex; align-items:center; justify-content:center;
-      overflow:hidden;
-    }
-    .thumb img{
-      width:100%; height:100%;
-      object-fit:cover;
-      transform: scale(1.02);
-      transition: transform .35s ease;
-      filter: saturate(1.05);
-    }
-    .card:hover .thumb img{transform: scale(1.07)}
-    .content{padding:12px}
-    .name{font-weight:900; line-height:1.15; margin:0}
-    .sub{margin:6px 0 0; color:rgba(255,255,255,.72); font-size:13px}
-    .meta{
-      display:flex; align-items:center; gap:10px;
-      margin-top:10px;
-    }
-    .price{
-      font-weight:1000;
-      color: var(--ok);
-      letter-spacing:.2px;
-    }
-    .tag{
-      font-size:12px;
-      padding:6px 10px;
-      border-radius:999px;
-      border:1px solid var(--stroke);
-      background: rgba(255,255,255,.04);
-      color:rgba(255,255,255,.84);
-    }
-    .tag.warn{
-      background: rgba(255,204,102,.10);
-      border-color: rgba(255,204,102,.35);
-      color: #ffe8b8;
-    }
-    .tag.hot{
-      background: rgba(255,79,216,.10);
-      border-color: rgba(255,79,216,.35);
-      color: #ffd2f4;
-    }
-    .cardActions{display:flex; gap:8px; margin-top:12px}
-    .btnSmall{
-      padding:10px 12px;
-      border-radius:14px;
-      font-size:13px;
-      flex:1;
-    }
+.card{
+  background:#fff;
+  border-radius:16px;
+  padding:15px;
+  box-shadow:0 8px 20px rgba(0,0,0,.08);
+  transition:.3s;
+  animation:fadeUp .8s ease;
+}
 
-    /* Responsive */
-    @media (max-width: 1100px){ .card{grid-column: span 4;} }
-    @media (max-width: 760px){
-      .card{grid-column: span 6;}
-      .heroInner{padding:18px}
-    }
-    @media (max-width: 520px){
-      .card{grid-column: span 12;}
-    }
+.card:hover{
+  transform:translateY(-8px) scale(1.02);
+  box-shadow:0 15px 30px rgba(0,0,0,.15);
+}
 
-    /* Drawer (Cart) */
-    .backdrop{
-      position:fixed; inset:0;
-      background: rgba(0,0,0,.55);
-      opacity:0; pointer-events:none;
-      transition: opacity .22s ease;
-      z-index:60;
-    }
-    .backdrop.on{opacity:1; pointer-events:auto}
-    .drawer{
-      position:fixed; top:0; right:0; height:100%;
-      width:min(460px, 92vw);
-      background: rgba(18,18,26,.92);
-      backdrop-filter: blur(14px);
-      border-left:1px solid var(--stroke);
-      box-shadow: var(--shadow);
-      transform: translateX(105%);
-      transition: transform .28s cubic-bezier(.2,.8,.2,1);
-      z-index:70;
-      display:flex; flex-direction:column;
-    }
-    .drawer.on{transform: translateX(0)}
-    .drawerHead{
-      padding:14px 14px;
-      border-bottom:1px solid var(--stroke);
-      display:flex; align-items:center; gap:10px;
-    }
-    .drawerHead h3{margin:0; font-size:16px}
-    .drawerBody{padding:14px; overflow:auto; flex:1}
-    .line{
-      display:flex; gap:10px; align-items:flex-start;
-      padding:10px; border:1px solid var(--stroke);
-      border-radius:16px;
-      background: rgba(255,255,255,.04);
-      margin-bottom:10px;
-    }
-    .line img{width:64px; height:64px; border-radius:14px; object-fit:cover; border:1px solid rgba(255,255,255,.08)}
-    .line b{display:block}
-    .qtyRow{display:flex; gap:8px; align-items:center; margin-top:8px}
-    .qtyBtn{width:34px; height:34px; border-radius:12px; padding:0; display:grid; place-items:center}
-    .qty{min-width:28px; text-align:center; font-weight:900}
-    .drawerFoot{
-      padding:14px;
-      border-top:1px solid var(--stroke);
-      background: rgba(0,0,0,.15);
-    }
-    .totals{display:flex; align-items:center; gap:10px; margin-bottom:10px}
-    .totals .big{font-size:18px; font-weight:1000}
-    .smallNote{font-size:12px; color:rgba(255,255,255,.75)}
+.card img{
+  width:100%;
+  border-radius:12px;
+}
 
-    /* Modal */
-    .modalWrap{
-      position:fixed; inset:0;
-      display:grid; place-items:center;
-      opacity:0; pointer-events:none;
-      transition: opacity .22s ease;
-      z-index:80;
-      padding:16px;
-    }
-    .modalWrap.on{opacity:1; pointer-events:auto}
-    .modal{
-      width:min(720px, 96vw);
-      background: rgba(18,18,26,.96);
-      border:1px solid var(--stroke);
-      border-radius: 22px;
-      box-shadow: var(--shadow);
-      overflow:hidden;
-      transform: translateY(10px) scale(.98);
-      transition: transform .22s ease;
-    }
-    .modalWrap.on .modal{transform: translateY(0) scale(1)}
-    .modalHead{
-      padding:14px 14px;
-      border-bottom:1px solid var(--stroke);
-      display:flex; align-items:center; gap:10px;
-    }
-    .modalHead h3{margin:0; font-size:16px}
-    .modalBody{padding:14px}
-    .modalGrid{display:grid; grid-template-columns: 1.1fr .9fr; gap:12px}
-    .modalImg{
-      border:1px solid var(--stroke);
-      background: rgba(255,255,255,.04);
-      border-radius: 18px;
-      overflow:hidden;
-    }
-    .modalImg img{width:100%; height:100%; object-fit:cover; display:block}
-    .kvs{margin-top:10px; display:flex; gap:8px; flex-wrap:wrap}
-    .kv{font-size:12px; padding:6px 10px; border-radius:999px; border:1px solid var(--stroke); background: rgba(255,255,255,.04)}
-    .desc{margin:10px 0 0; color:rgba(255,255,255,.78); font-size:14px; line-height:1.45}
-    .bul{margin:10px 0 0; padding-left:18px; color:rgba(255,255,255,.78); font-size:13px}
-    @media (max-width: 760px){
-      .modalGrid{grid-template-columns: 1fr}
-    }
+.card h3{
+  font-size:15px;
+  margin:10px 0;
+}
 
-    /* Reviews */
-    .reviewsWrap{
-      padding: 6px 0 22px;
-    }
-    .reviewCards{
-      display:grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap:12px;
-    }
-    .reviewCard{
-      grid-column: span 6;
-      background: rgba(255,255,255,.04);
-      border:1px solid var(--stroke);
-      border-radius: 18px;
-      padding:12px;
-    }
-    .reviewTop{display:flex; align-items:center; gap:10px}
-    .stars{letter-spacing:1px}
-    .reviewCard small{color:rgba(255,255,255,.72)}
-    @media (max-width: 720px){ .reviewCard{grid-column: span 12} }
+.price{
+  color:#2ecc71;
+  font-weight:bold;
+  margin-bottom:10px;
+}
 
-    .starPick{
-      display:flex; gap:6px; flex-wrap:wrap; align-items:center;
-      padding:10px; border:1px solid var(--stroke); border-radius:16px; background: rgba(255,255,255,.04);
-    }
-    .starBtn{
-      width:42px; height:42px; border-radius:14px;
-      border:1px solid var(--stroke);
-      background: rgba(255,255,255,.03);
-      color:rgba(255,255,255,.8);
-      cursor:pointer;
-      transition: transform .14s ease, background .14s ease, border-color .14s ease;
-      display:grid; place-items:center;
-      font-size:18px;
-    }
-    .starBtn:hover{transform: translateY(-1px); background: rgba(255,255,255,.06)}
-    .starBtn.on{
-      background: rgba(255,204,102,.12);
-      border-color: rgba(255,204,102,.35);
-      color:#ffe7b6;
-    }
+.buy{
+  background:#ff758c;
+  color:#fff;
+  padding:10px;
+  border-radius:20px;
+  text-align:center;
+  cursor:pointer;
+  transition:.3s;
+}
 
-    /* Floating WhatsApp */
-    .floatWhats{
-      position:fixed; right:16px; bottom:16px; z-index:90;
-      display:flex; gap:10px; align-items:center;
-    }
-    .fab{
-      width:56px; height:56px;
-      border-radius: 18px;
-      background: rgba(46,229,157,.14);
-      border:1px solid rgba(46,229,157,.45);
-      display:grid; place-items:center;
-      box-shadow: 0 18px 50px rgba(0,0,0,.45);
-      cursor:pointer;
-      transition: transform .18s ease;
-    }
-    .fab:hover{transform: translateY(-2px)}
-    .fab span{font-size:22px}
-    .floatLabel{
-      display:none;
-      padding:10px 12px;
-      border-radius: 16px;
-      border:1px solid var(--stroke);
-      background: rgba(18,18,26,.92);
-      box-shadow: var(--shadow2);
-      color:rgba(255,255,255,.85);
-      font-size:13px;
-      max-width: 220px;
-    }
-    @media (min-width: 860px){
-      .floatLabel{display:block}
-    }
+.buy:hover{
+  background:#ff4f73;
+  transform:scale(1.05);
+}
 
-    /* Footer */
-    footer{
-      border-top:1px solid var(--stroke);
-      padding:18px 0 70px;
-      color:rgba(255,255,255,.72);
-      font-size:13px;
-    }
-    .footGrid{display:flex; gap:12px; flex-wrap:wrap; align-items:center}
-    .sep{opacity:.35}
+footer{
+  text-align:center;
+  padding:20px;
+  background:#fff;
+  font-size:14px;
+}
 
-    /* Reduced motion */
-    @media (prefers-reduced-motion: reduce){
-      *{animation:none!important; transition:none!important; scroll-behavior:auto!important}
-    }
-  </style>
+/* Animações */
+@keyframes fadeUp{
+  from{opacity:0; transform:translateY(30px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+@keyframes fadeDown{
+  from{opacity:0; transform:translateY(-30px);}
+  to{opacity:1; transform:translateY(0);}
+}
+</style>
 </head>
 
 <body>
-  <!-- TOPBAR -->
-  <header class="topbar">
-    <div class="container">
-      <div class="inner">
-        <div class="brand">
-          <div class="logo" aria-hidden="true"></div>
-          <div>
-            <div style="font-weight:1000; line-height:1.05">Cintia Makess</div>
-            <div class="muted" style="font-size:12px">Tudo por <b style="color:var(--ok)">R$ 10,00</b> • atendimento humano</div>
-          </div>
-        </div>
 
-        <div class="spacer"></div>
+<header>
+  <h1>Cintia Makess</h1>
+  <p>✨ Beleza acessível • Tudo por R$ 10,00 ✨</p>
+</header>
 
-        <span class="pill" id="pillCount">0 itens no carrinho</span>
-        <button class="btn btn-whats" id="btnHumanTop">💬 Atendimento humano</button>
-        <button class="btn btn-primary" id="btnCartTop">🛒 Carrinho</button>
-      </div>
-    </div>
-  </header>
+<section class="hero">
+  <h2>Beleza simples para todas as idades</h2>
+  <p>Maquiagem, skincare e acessórios com preço único</p>
+</section>
 
-  <!-- HERO -->
-  <main>
-    <section class="hero container">
-      <div class="heroCard">
-        <div class="heroInner">
-          <h1>Compra simples. Preço único. Experiência top. 💖</h1>
-          <p>
-            Aqui é <b>Cintia Makess</b>: todos os produtos por <b style="color:var(--ok)">R$ 10,00</b>.
-            Você pode comprar pelo carrinho ou chamar no WhatsApp para ser atendido por uma pessoa real.
-          </p>
+<section class="products" id="products"></section>
 
-          <div class="heroActions">
-            <button class="btn btn-primary" id="btnGoProducts">Ver produtos</button>
-            <button class="btn btn-whats" id="btnHumanHero">Atendimento humano</button>
-            <span class="pill">⭐ Avalie o site e a loja física</span>
-          </div>
-
-          <div class="searchWrap">
-            <div class="search" role="search" aria-label="Buscar produto">
-              🔎 <input id="q" placeholder="Buscar por nome (ex: cílios, bruma, corretivo...)" autocomplete="off" />
-            </div>
-            <button class="btn" id="btnRate">⭐ Avaliar</button>
-            <button class="btn btn-ghost" id="btnClear">Limpar filtros</button>
-          </div>
-
-          <div class="chips" id="chips">
-            <button class="chip active" data-cat="all">Tudo</button>
-            <button class="chip" data-cat="Maquiagem">Maquiagem</button>
-            <button class="chip" data-cat="Skincare">Skincare</button>
-            <button class="chip" data-cat="Acessórios">Acessórios</button>
-            <button class="chip" data-cat="Papelaria">Papelaria</button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- LIST -->
-    <section class="container">
-      <div class="sectionTitle" id="productsAnchor">
-        <h2>Produtos</h2>
-        <div class="muted" id="resultCount"></div>
-        <div class="spacer"></div>
-        <span class="pill">🟢 Botões de compra destacados</span>
-      </div>
-
-      <div class="grid" id="grid" aria-live="polite"></div>
-    </section>
-
-    <!-- REVIEWS -->
-    <section class="container reviewsWrap" id="reviewsAnchor">
-      <div class="sectionTitle">
-        <h2>Avaliações</h2>
-        <div class="muted">De 0 a 5 estrelas + comentários</div>
-        <div class="spacer"></div>
-        <button class="btn" id="btnRate2">⭐ Escrever avaliação</button>
-      </div>
-      <div class="reviewCards" id="reviewCards"></div>
-    </section>
-
-    <footer>
-      <div class="container">
-        <div class="footGrid">
-          <span>© <span id="year"></span> Cintia Makess</span>
-          <span class="sep">•</span>
-          <span>Preço único: <b style="color:var(--ok)">R$ 10,00</b></span>
-          <span class="sep">•</span>
-          <span>Atendimento humano: WhatsApp</span>
-        </div>
-      </div>
-    </footer>
-  </main>
-
-  <!-- FLOATING WHATS -->
-  <div class="floatWhats">
-    <div class="floatLabel">Prefere falar com uma pessoa de verdade? 💬</div>
-    <button class="fab" id="btnHumanFloat" aria-label="Atendimento humano no WhatsApp">
-      <span>🟢</span>
-    </button>
-  </div>
-
-  <!-- CART DRAWER -->
-  <div class="backdrop" id="backdrop"></div>
-  <aside class="drawer" id="drawer" aria-label="Carrinho">
-    <div class="drawerHead">
-      <h3>🛒 Seu carrinho</h3>
-      <div class="spacer"></div>
-      <button class="btn btn-ghost" id="btnCloseCart">Fechar ✕</button>
-    </div>
-
-    <div class="drawerBody">
-      <div id="cartLines"></div>
-      <div class="smallNote" id="cartEmpty" style="display:none">
-        Seu carrinho está vazio. Clique em <b>Comprar</b> em algum produto para adicionar.
-      </div>
-
-      <hr style="border:0;border-top:1px solid var(--stroke); margin:14px 0">
-
-      <div class="sectionTitle" style="margin:0 0 8px">
-        <h2 style="font-size:16px">Finalizar</h2>
-        <div class="muted">Sem forma de pagamento (como você pediu)</div>
-      </div>
-
-      <div style="display:grid; gap:10px">
-        <div class="search" style="padding:12px 12px">
-          🧑 <input id="ckName" placeholder="Seu nome" />
-        </div>
-
-        <div class="search" style="padding:12px 12px">
-          🚚 <input id="ckMode" placeholder="Entrega ou Retirada (ex: Entrega)" />
-        </div>
-
-        <div class="search" style="padding:12px 12px">
-          📍 <input id="ckAddress" placeholder="Endereço (se for entrega)" />
-        </div>
-
-        <div class="search" style="padding:12px 12px">
-          📝 <input id="ckObs" placeholder="Observações (opcional)" />
-        </div>
-
-        <button class="btn btn-ok" id="btnSendWhats">Finalizar no WhatsApp</button>
-        <div class="smallNote">
-          Ao clicar, abrimos o WhatsApp com sua lista de itens para a <b>Cintia Makess</b>.
-        </div>
-
-        <button class="btn btn-danger" id="btnClearCart">Limpar carrinho</button>
-      </div>
-    </div>
-
-    <div class="drawerFoot">
-      <div class="totals">
-        <div class="pill">💎 Tudo por R$ 10,00</div>
-        <div class="spacer"></div>
-        <div class="big" id="total">R$ 0,00</div>
-      </div>
-      <div class="smallNote">Total = (quantidade de itens) × 10 reais</div>
-    </div>
-  </aside>
-
-  <!-- PRODUCT MODAL -->
-  <div class="modalWrap" id="modalWrap" aria-hidden="true">
-    <div class="modal" role="dialog" aria-modal="true" aria-label="Detalhes do produto">
-      <div class="modalHead">
-        <h3 id="mTitle">Detalhes</h3>
-        <div class="spacer"></div>
-        <button class="btn btn-ghost" id="mClose">Fechar ✕</button>
-      </div>
-      <div class="modalBody">
-        <div class="modalGrid">
-          <div class="modalImg"><img id="mImg" alt="" /></div>
-          <div>
-            <div class="row">
-              <span class="pill">Preço: <b style="color:var(--ok)">R$ 10,00</b></span>
-              <span class="pill" id="mStock"></span>
-              <span class="pill" id="mCat"></span>
-            </div>
-
-            <p class="desc" id="mDesc"></p>
-            <ul class="bul" id="mBenefits"></ul>
-
-            <div class="row" style="margin-top:12px">
-              <button class="btn btn-buy" id="mBuy">COMPRAR • R$ 10,00</button>
-              <button class="btn btn-whats" id="mHuman">Atendimento humano</button>
-            </div>
-
-            <div class="kvs" style="margin-top:10px">
-              <span class="kv">📦 Envio conforme disponibilidade</span>
-              <span class="kv">🟢 Compra simples</span>
-              <span class="kv">💬 Suporte humano</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- RATE MODAL -->
-  <div class="modalWrap" id="rateWrap" aria-hidden="true">
-    <div class="modal" role="dialog" aria-modal="true" aria-label="Avaliar">
-      <div class="modalHead">
-        <h3>⭐ Avaliar o site e a loja física</h3>
-        <div class="spacer"></div>
-        <button class="btn btn-ghost" id="rateClose">Fechar ✕</button>
-      </div>
-      <div class="modalBody">
-        <div class="modalGrid">
-          <div>
-            <div class="muted" style="margin-bottom:8px">Seu nome (opcional)</div>
-            <div class="search" style="padding:12px 12px">
-              🧑 <input id="rvName" placeholder="Ex: Maria" />
-            </div>
-
-            <div style="height:10px"></div>
-
-            <div class="muted" style="margin-bottom:8px">Avaliação do <b>site</b> (0–5)</div>
-            <div class="starPick" id="starsSite"></div>
-
-            <div style="height:10px"></div>
-
-            <div class="muted" style="margin-bottom:8px">Avaliação da <b>loja física</b> (0–5)</div>
-            <div class="starPick" id="starsStore"></div>
-
-            <div style="height:10px"></div>
-
-            <div class="muted" style="margin-bottom:8px">Comentário</div>
-            <div class="search" style="padding:12px 12px">
-              💬 <input id="rvText" placeholder="Escreva aqui (curto e sincero)..." />
-            </div>
-
-            <div class="row" style="margin-top:12px">
-              <button class="btn btn-primary" id="rvSend">Enviar avaliação</button>
-              <button class="btn btn-danger" id="rvClear">Limpar avaliações</button>
-            </div>
-
-            <div class="smallNote" style="margin-top:10px">
-              As avaliações ficam salvas no seu navegador (localStorage).
-            </div>
-          </div>
-
-          <div>
-            <div class="pill">✨ Obrigado por ajudar a melhorar!</div>
-            <p class="desc">
-              Quanto mais simples e honesto, melhor. Isso melhora a experiência do cliente e dá confiança para novas compras.
-            </p>
-            <ul class="bul">
-              <li>Atendimento humano rápido conta muito</li>
-              <li>Site limpo e botões claros ajudam todas as idades</li>
-              <li>“Últimas unidades” aumenta conversão sem pressão</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+<footer>
+  <p>📞 Atendimento humano: <strong>+55 15 97407-2640</strong></p>
+  <p>💖 Obrigada por confiar na Cintia Makess</p>
+</footer>
 
 <script>
-(() => {
-  // =========================
-  // CONFIG
-  // =========================
-  const STORE_NAME = "Cintia Makess";
-  const WHATS_PHONE = "5515974072640"; // 55 + DDD + número (sem espaços)
-  const PRICE = 10;
-
-  // =========================
-  // PRODUCTS (TODOS R$ 10)
-  // =========================
-  const products = [
-    // SKINCARE
-    {
-      id:"agua-micelar-camomila-120",
-      name:"Água Micelar de Camomila (120ml)",
-      category:"Skincare",
-      sub:"Skincare / Cuidados Faciais",
-      stock: 10, min: 1,
-      img:"images/micelar-camomila.jpg",
-      short:"Limpa, remove impurezas e acalma com camomila.",
-      desc:"Água Micelar de Camomila com extrato de camomila. Remove maquiagem e impurezas, ajuda a acalmar e suavizar a pele com toque refrescante.",
-      benefits:["Limpeza suave","Acalma a pele","Uso diário","Toque refrescante"]
-    },
-    {
-      id:"bruma-200-hialuronico-200ml",
-      name:"Bruma Fixadora 200+ Ácido Hialurônico (200ml)",
-      category:"Skincare",
-      sub:"Skincare / Fixação e Hidratação",
-      stock: 6, min: 1,
-      img:"images/bruma-200.jpg",
-      short:"Refresca, hidrata e ajuda a fixar a maquiagem.",
-      desc:"Bruma leve para usar antes/depois da maquiagem ou durante o dia. Sensação refrescante e confortável.",
-      benefits:["Refrescante","Leve","Ajuda a fixar","Uso diário"]
-    },
-    {
-      id:"bruma-melancia",
-      name:"Bruma Fixadora Melancia",
-      category:"Skincare",
-      sub:"Skincare / Fixação e Hidratação",
-      stock: 6, min: 1,
-      img:"images/bruma-melancia.jpg",
-      short:"Refresca, hidrata e ajuda a fixar a maquiagem 🍉",
-      desc:"Bruma com sensação refrescante e aroma suave de melancia. Ideal para preparar, finalizar ou refrescar a pele ao longo do dia.",
-      benefits:["Ajuda a fixar","Refrescante","Aroma suave","Para todos os tipos de pele"]
-    },
-    {
-      id:"creme-area-olhos-banana",
-      name:"Creme para Área dos Olhos de Banana",
-      category:"Skincare",
-      sub:"Skincare / Área dos Olhos",
-      stock: 4, min: 1,
-      img:"images/creme-olhos-banana.jpg",
-      short:"Hidratação diária com toque suave 🍌",
-      desc:"Creme para a região delicada ao redor dos olhos. Textura leve e sensação confortável. Pode ser usado antes da maquiagem.",
-      benefits:["Hidratação diária","Textura leve","Confortável","Uso diário"]
-    },
-    {
-      id:"creme-area-olhos-pitaya-60g",
-      name:"Creme para Área dos Olhos de Pitaya (60g)",
-      category:"Skincare",
-      sub:"Skincare / Área dos Olhos",
-      stock: 4, min: 1,
-      img:"images/creme-olhos-pitaya.jpg",
-      short:"Cuidado diário com sensação de frescor 🍓",
-      desc:"Creme para a área dos olhos com textura leve, ajudando a manter a pele hidratada e macia. Ideal para rotina diária.",
-      benefits:["Hidratação diária","Textura leve","Sensação de frescor","Uso diário"]
-    },
-
-    // MAQUIAGEM (Pele / Base / Corretivo / Contorno etc)
-    {
-      id:"base-liquida-angels",
-      name:"Base Líquida Angels",
-      category:"Maquiagem",
-      sub:"Maquiagem / Pele",
-      stock: 24, min: 1,
-      img:"images/base-angel.jpg",
-      short:"Base prática para o dia a dia.",
-      desc:"Base líquida para uso diário. Ideal para uniformizar o tom e deixar a pele com acabamento bonito.",
-      benefits:["Uniformiza a pele","Uso diário","Prática","Acabamento bonito"]
-    },
-    {
-      id:"base-matte-prova-agua-45ml",
-      name:"Base Matte à Prova d’Água (45ml)",
-      category:"Maquiagem",
-      sub:"Maquiagem / Pele",
-      stock: 24, min: 1,
-      img:"images/base-matte-45.jpg",
-      short:"Acabamento matte e maior durabilidade.",
-      desc:"Base matte com boa durabilidade, ideal para quem gosta de acabamento mais sequinho.",
-      benefits:["Matte","Boa durabilidade","Uniformiza","Ótima para eventos"]
-    },
-    {
-      id:"corretivo-contorno-tons-variados",
-      name:"Corretivo e Contorno – Tons Variados",
-      category:"Maquiagem",
-      sub:"Maquiagem / Pele",
-      stock: 24, min: 1,
-      img:"images/corretivo-contorno.jpg",
-      short:"Corrige e define com praticidade.",
-      desc:"Produto prático para corrigir olheiras e imperfeições e fazer contorno facial. Envio conforme disponibilidade de tons.",
-      benefits:["Tons variados","Corrige imperfeições","Ideal para contorno","Fácil de espalhar"]
-    },
-    {
-      id:"batom-liquido-mood",
-      name:"Batom Líquido Mood",
-      category:"Maquiagem",
-      sub:"Maquiagem / Lábios",
-      stock: 15, min: 1,
-      img:"images/batom-mood.jpg",
-      short:"Cor intensa para o dia a dia.",
-      desc:"Batom líquido prático e lindo para completar a maquiagem com charme.",
-      benefits:["Prático","Bonito","Combina com looks","Uso diário"]
-    },
-    {
-      id:"blush-liquido",
-      name:"Blush Líquido",
-      category:"Maquiagem",
-      sub:"Maquiagem / Rosto",
-      stock: 24, min: 1,
-      img:"images/blush-liquido.jpg",
-      short:"Cor natural e fácil de espalhar.",
-      desc:"Blush líquido para dar aquele ar saudável e lindo. Pode construir camadas e fica ótimo no dia a dia.",
-      benefits:["Efeito natural","Fácil de espalhar","Construível","Uso diário"]
-    },
-    {
-      id:"blindagem-3em1",
-      name:"Blindagem 3 em 1 (Primer, Fixador, Diluidor)",
-      category:"Maquiagem",
-      sub:"Maquiagem / Preparação",
-      stock: 36, min: 1,
-      img:"images/blindagem-3em1.jpg",
-      short:"Ajuda na preparação e finalização.",
-      desc:"Produto 3 em 1: primer, fixador e diluidor. Ajuda na rotina de maquiagem e na durabilidade.",
-      benefits:["3 em 1","Prático","Ajuda na fixação","Versátil"]
-    },
-
-    // MAQUIAGEM (Olhos / Cílios)
-    {
-      id:"cilios-posticos-6d",
-      name:"Cílios Postiços 6D",
-      category:"Maquiagem",
-      sub:"Maquiagem / Olhos",
-      stock: 2, min: 1,
-      img:"images/cilios-6d.jpg",
-      short:"Efeito 6D para olhar marcante.",
-      desc:"Cílios 6D com volume e definição para realçar o olhar. Leves e ideais para festas, fotos e eventos.",
-      benefits:["Efeito 6D","Realça o olhar","Leves","Fácil aplicação"]
-    },
-    {
-      id:"cilios-posticos-8d",
-      name:"Cílios Postiços 8D",
-      category:"Maquiagem",
-      sub:"Maquiagem / Olhos",
-      stock: 2, min: 1,
-      img:"images/cilios-8d.jpg",
-      short:"Efeito 8D com volume extra.",
-      desc:"Cílios 8D para quem ama um olhar ainda mais intenso e glamouroso. Ótimos para eventos e makes marcantes.",
-      benefits:["Efeito 8D","Volume intenso","Glam","Fácil aplicação"]
-    },
-    {
-      id:"cola-cilios-transparente-7ml",
-      name:"Cola para Cílios Postiços Transparente (7ml)",
-      category:"Maquiagem",
-      sub:"Maquiagem / Olhos",
-      stock: 2, min: 1,
-      img:"images/cola-cilios-7ml.jpg",
-      short:"Fixação segura com acabamento natural.",
-      desc:"Cola para cílios que seca transparente, ajudando a manter os cílios firmes com acabamento discreto.",
-      benefits:["Secagem transparente","Boa fixação","Fácil aplicar","Ideal para cílios"]
-    },
-    {
-      id:"cola-cilios-prova-agua-7ml",
-      name:"Cola para Cílios Transparente à Prova d’Água (7ml)",
-      category:"Maquiagem",
-      sub:"Maquiagem / Olhos",
-      stock: 2, min: 1,
-      img:"images/cola-cilios-prova-agua-7ml.jpg",
-      short:"Transparente + resistente à água.",
-      desc:"Cola com fixação forte e duradoura. Seca transparente e ajuda a segurar bem mesmo em dias quentes/úmidos.",
-      benefits:["Transparente","À prova d’água","Fixação forte","Acabamento natural"]
-    },
-
-    // PAPELARIA
-    {
-      id:"bobbie-goods-cards-canetinhas",
-      name:"Bobbie Goods Cards e Canetinhas",
-      category:"Papelaria",
-      sub:"Papelaria / Kit",
-      stock: 4, min: 1,
-      img:"images/bobbie-goods.jpg",
-      short:"Kit divertido para presentear e usar.",
-      desc:"Cards e canetinhas para um momento criativo e fofo. Ótimo para presentear.",
-      benefits:["Criativo","Fofo","Presente","Uso diário"]
-    },
-
-    // ACESSÓRIOS
-    {
-      id:"boob-tape",
-      name:"Boob Tape (Fita Lift para Seios)",
-      category:"Acessórios",
-      sub:"Acessórios / Moda",
-      stock: 1, min: 1,
-      img:"images/boob-tape.jpg",
-      short:"Para decotes e looks. Mais firmeza e segurança.",
-      desc:"Fita adesiva para ajudar a dar sustentação em looks com decote. Faça teste em pequena área da pele antes de usar.",
-      benefits:["Sustentação no look","Boa para decotes","Ideal para eventos","Uso prático"]
-    },
-    {
-      id:"colares-dourados-variados",
-      name:"Colares Dourados Variados",
-      category:"Acessórios",
-      sub:"Acessórios / Bijuterias",
-      stock: 4, min: 1,
-      img:"images/colares-dourados.jpg",
-      short:"Brilho e charme para completar o look.",
-      desc:"Colares dourados variados, leves e fáceis de combinar. Envio conforme disponibilidade de modelos.",
-      benefits:["Elegante","Modelos variados","Leves","Fácil combinar"]
-    },
-
-    // (Também incluí os acessórios das fotos iniciais para garantir “todos os produtos”)
-    {
-      id:"faixa-pelucia-estampada",
-      name:"Faixa de Cabelo de Pelúcia (Estampada)",
-      category:"Acessórios",
-      sub:"Acessórios / Cabelo",
-      stock: 20, min: 1,
-      img:"images/faixa-pelucia.jpg",
-      short:"Macia e perfeita para skincare e make.",
-      desc:"Faixa de pelúcia confortável para prender o cabelo na hora do skincare, maquiagem ou banho.",
-      benefits:["Macia","Confortável","Prende bem","Ótima para presente"]
-    },
-    {
-      id:"massageador-couro-cabeludo",
-      name:"Massageador de Couro Cabeludo (Silicone)",
-      category:"Acessórios",
-      sub:"Acessórios / Cabelo",
-      stock: 12, min: 1,
-      img:"images/massageador.jpg",
-      short:"Massageia e ajuda a espalhar shampoo.",
-      desc:"Massageador de silicone para couro cabeludo. Relaxante e prático para a rotina de cuidados.",
-      benefits:["Relaxante","Silicone macio","Fácil limpar","Uso diário"]
-    },
-    {
-      id:"escova-desembaracadora",
-      name:"Escova Desembaraçadora",
-      category:"Acessórios",
-      sub:"Acessórios / Cabelo",
-      stock: 10, min: 1,
-      img:"images/escova-desembaracadora.jpg",
-      short:"Desembaraça com mais facilidade.",
-      desc:"Escova prática para o dia a dia, ajudando a desembaraçar com conforto.",
-      benefits:["Prática","Confortável","Dia a dia","Boa pegada"]
-    },
-    {
-      id:"escova-raquete",
-      name:"Escova Raquete",
-      category:"Acessórios",
-      sub:"Acessórios / Cabelo",
-      stock: 8, min: 1,
-      img:"images/escova-raquete.jpg",
-      short:"Escova grande e rápida no uso.",
-      desc:"Escova raquete para pentear com facilidade e conforto, ideal para deixar o cabelo alinhado.",
-      benefits:["Rápida","Confortável","Uso diário","Pegada firme"]
-    },
-    {
-      id:"kit-presilhas-variadas",
-      name:"Kit Presilhas Variadas (Coloridas)",
-      category:"Acessórios",
-      sub:"Acessórios / Cabelo",
-      stock: 10, min: 1,
-      img:"images/kit-presilhas.jpg",
-      short:"Presilhas coloridas para variar o visual.",
-      desc:"Kit de presilhas para prender o cabelo com praticidade. Ótimo para escola e passeios.",
-      benefits:["Várias peças","Coloridas","Práticas","Dia a dia"]
-    },
-    {
-      id:"kit-acessorios-coelho",
-      name:"Kit Acessórios (Tema Coelho)",
-      category:"Acessórios",
-      sub:"Acessórios / Infantil",
-      stock: 9, min: 1,
-      img:"images/kit-coelho.jpg",
-      short:"Kit fofo — ótimo para presentear.",
-      desc:"Kit de acessórios com tema fofo. Ideal para crianças e para quem ama itens delicados.",
-      benefits:["Fofo","Presente","Várias peças","Uso diário"]
-    },
-    {
-      id:"oculos-coracao",
-      name:"Óculos Coração (Fashion)",
-      category:"Acessórios",
-      sub:"Acessórios / Moda",
-      stock: 7, min: 1,
-      img:"images/oculos-coracao.jpg",
-      short:"Óculos estiloso para looks e fotos.",
-      desc:"Óculos em formato de coração — leve e moderno. Perfeito para fotos e passeios.",
-      benefits:["Fashion","Leve","Fotos lindas","Combina com looks"]
-    },
-    {
-      id:"presilha-laco-dourada",
-      name:"Presilha Laço Dourada (Metal)",
-      category:"Acessórios",
-      sub:"Acessórios / Cabelo",
-      stock: 6, min: 1,
-      img:"images/presilha-laco-dourada.jpg",
-      short:"Delicada e elegante para o cabelo.",
-      desc:"Presilha metálica em formato de laço com acabamento elegante.",
-      benefits:["Elegante","Resistente","Fácil usar","Ótima para presente"]
-    }
-  ];
-
-  // =========================
-  // STATE
-  // =========================
-  const $ = (s, el=document) => el.querySelector(s);
-  const $$ = (s, el=document) => Array.from(el.querySelectorAll(s));
-  const money = (n) => n.toLocaleString("pt-BR", {style:"currency", currency:"BRL"});
-  const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
-
-  let cat = "all";
-  let q = "";
-  let cart = loadJSON("cm_cart", {}); // {id: qty}
-  let selectedProduct = null;
-
-  // =========================
-  // RENDER PRODUCTS
-  // =========================
-  const grid = $("#grid");
-  const resultCount = $("#resultCount");
-
-  function filtered(){
-    const ql = q.trim().toLowerCase();
-    return products.filter(p => {
-      const okCat = (cat === "all") ? true : p.category === cat;
-      const okQ = !ql ? true : (p.name + " " + p.sub).toLowerCase().includes(ql);
-      return okCat && okQ;
-    });
-  }
-
-  function tagFor(p){
-    if (p.stock <= 2) return `<span class="tag warn">⚠️ Últimas unidades</span>`;
-    if (p.stock <= 6) return `<span class="tag hot">🔥 Poucas unidades</span>`;
-    return `<span class="tag">✅ Disponível</span>`;
-  }
-
-  function render(){
-    const list = filtered();
-    resultCount.textContent = `${list.length} produto(s) encontrados`;
-
-    grid.innerHTML = list.map(p => `
-      <article class="card" data-id="${p.id}">
-        <div class="thumb" role="button" tabindex="0" aria-label="Ver detalhes de ${escapeHtml(p.name)}">
-          <img src="${escapeAttr(p.img)}" alt="${escapeAttr(p.name)}">
-        </div>
-        <div class="content">
-          <p class="name">${escapeHtml(p.name)}</p>
-          <div class="sub">${escapeHtml(p.sub || p.category)}</div>
-
-          <div class="meta">
-            <div class="price">${money(PRICE)}</div>
-            ${tagFor(p)}
-          </div>
-
-          <div class="cardActions">
-            <button class="btn btnSmall btn-buy" data-buy="${p.id}">COMPRAR</button>
-            <button class="btn btnSmall" data-details="${p.id}">Detalhes</button>
-          </div>
-        </div>
-      </article>
-    `).join("");
-
-    // animate in with intersection observer
-    observeCards();
-  }
-
-  // =========================
-  // ANIMATION: reveal cards
-  // =========================
-  let io = null;
-  function observeCards(){
-    if (io) io.disconnect();
-    const cards = $$(".card", grid);
-    io = new IntersectionObserver((entries) => {
-      for (const e of entries){
-        if (e.isIntersecting){
-          e.target.classList.add("in");
-          io.unobserve(e.target);
-        }
-      }
-    }, {threshold:.12});
-    cards.forEach(c => io.observe(c));
-  }
-
-  // =========================
-  // MODAL (DETAILS)
-  // =========================
-  const modalWrap = $("#modalWrap");
-  const mTitle = $("#mTitle");
-  const mImg = $("#mImg");
-  const mStock = $("#mStock");
-  const mCat = $("#mCat");
-  const mDesc = $("#mDesc");
-  const mBenefits = $("#mBenefits");
-  const mBuy = $("#mBuy");
-  const mHuman = $("#mHuman");
-
-  function openModal(p){
-    selectedProduct = p;
-    mTitle.textContent = p.name;
-    mImg.src = p.img;
-    mImg.alt = p.name;
-    mStock.textContent = `Estoque: ${p.stock}`;
-    mCat.textContent = p.category;
-    mDesc.textContent = p.desc || p.short || "";
-    mBenefits.innerHTML = (p.benefits || []).slice(0,6).map(x => `<li>${escapeHtml(x)}</li>`).join("");
-    modalWrap.classList.add("on");
-    modalWrap.setAttribute("aria-hidden","false");
-  }
-  function closeModal(){
-    modalWrap.classList.remove("on");
-    modalWrap.setAttribute("aria-hidden","true");
-    selectedProduct = null;
-  }
-
-  $("#mClose").addEventListener("click", closeModal);
-  modalWrap.addEventListener("click", (e)=>{ if(e.target === modalWrap) closeModal(); });
-  document.addEventListener("keydown", (e)=>{ if(e.key==="Escape"){ closeModal(); closeRate(); closeCart(); }});
-
-  mBuy.addEventListener("click", () => {
-    if (!selectedProduct) return;
-    addToCart(selectedProduct.id, 1);
-    closeModal();
-    openCart();
-  });
-
-  mHuman.addEventListener("click", () => openWhatsAppHuman());
-
-  // =========================
-  // CART
-  // =========================
-  const drawer = $("#drawer");
-  const backdrop = $("#backdrop");
-  const cartLines = $("#cartLines");
-  const cartEmpty = $("#cartEmpty");
-  const totalEl = $("#total");
-  const pillCount = $("#pillCount");
-
-  function cartCount(){
-    return Object.values(cart).reduce((a,b)=>a+b,0);
-  }
-  function cartTotal(){
-    return cartCount() * PRICE;
-  }
-
-  function addToCart(id, qty){
-    cart[id] = (cart[id] || 0) + qty;
-    if (cart[id] <= 0) delete cart[id];
-    saveJSON("cm_cart", cart);
-    updateCartUI();
-    bumpPill();
-  }
-
-  function bumpPill(){
-    pillCount.animate(
-      [{transform:"scale(1)"},{transform:"scale(1.06)"},{transform:"scale(1)"}],
-      {duration:260, easing:"ease-out"}
-    );
-  }
-
-  function updateCartUI(){
-    const ids = Object.keys(cart);
-    pillCount.textContent = `${cartCount()} itens no carrinho`;
-    totalEl.textContent = money(cartTotal());
-
-    if (!ids.length){
-      cartLines.innerHTML = "";
-      cartEmpty.style.display = "block";
-      return;
-    }
-    cartEmpty.style.display = "none";
-
-    cartLines.innerHTML = ids.map(id => {
-      const p = products.find(x=>x.id===id);
-      const qty = cart[id] || 0;
-      if(!p) return "";
-      return `
-        <div class="line">
-          <img src="${escapeAttr(p.img)}" alt="${escapeAttr(p.name)}">
-          <div style="flex:1">
-            <b>${escapeHtml(p.name)}</b>
-            <small>${escapeHtml(p.sub || p.category)} • ${money(PRICE)}</small>
-            <div class="qtyRow">
-              <button class="btn qtyBtn" data-dec="${p.id}">−</button>
-              <div class="qty">${qty}</div>
-              <button class="btn qtyBtn" data-inc="${p.id}">+</button>
-              <div class="spacer"></div>
-              <button class="btn btn-danger" data-rem="${p.id}">Remover</button>
-            </div>
-          </div>
-        </div>
-      `;
-    }).join("");
-  }
-
-  function openCart(){
-    backdrop.classList.add("on");
-    drawer.classList.add("on");
-  }
-  function closeCart(){
-    backdrop.classList.remove("on");
-    drawer.classList.remove("on");
-  }
-
-  $("#btnCartTop").addEventListener("click", ()=>{ updateCartUI(); openCart(); });
-  $("#btnCloseCart").addEventListener("click", closeCart);
-  backdrop.addEventListener("click", closeCart);
-
-  $("#btnClearCart").addEventListener("click", ()=>{
-    cart = {};
-    saveJSON("cm_cart", cart);
-    updateCartUI();
-  });
-
-  cartLines.addEventListener("click", (e)=>{
-    const inc = e.target.closest("[data-inc]")?.dataset?.inc;
-    const dec = e.target.closest("[data-dec]")?.dataset?.dec;
-    const rem = e.target.closest("[data-rem]")?.dataset?.rem;
-    if (inc) addToCart(inc, 1);
-    if (dec) addToCart(dec, -1);
-    if (rem){ delete cart[rem]; saveJSON("cm_cart", cart); updateCartUI(); }
-  });
-
-  // Checkout send (NO payment field)
-  $("#btnSendWhats").addEventListener("click", ()=>{
-    const ids = Object.keys(cart);
-    if (!ids.length){
-      alert("Seu carrinho está vazio.");
-      return;
-    }
-
-    const name = ($("#ckName").value || "").trim();
-    const mode = ($("#ckMode").value || "").trim() || "Entrega";
-    const addr = ($("#ckAddress").value || "").trim();
-    const obs  = ($("#ckObs").value || "").trim();
-
-    const lines = [];
-    lines.push(`🛍️ *Pedido — ${STORE_NAME}*`);
-    if (name) lines.push(`👤 Nome: ${name}`);
-    lines.push(`🚚 Opção: ${mode}`);
-    if (mode.toLowerCase().includes("entreg") && addr) lines.push(`📍 Endereço: ${addr}`);
-    if (obs) lines.push(`📝 Obs: ${obs}`);
-    lines.push("");
-    lines.push(`📦 *Itens* (R$ 10,00 cada):`);
-
-    ids.forEach(id => {
-      const p = products.find(x=>x.id===id);
-      const qty = cart[id];
-      if (!p) return;
-      lines.push(`• ${qty}x ${p.name}`);
-    });
-
-    lines.push("");
-    lines.push(`💰 Total: *${money(cartTotal())}*`);
-    lines.push(`✅ Quero finalizar com você!`);
-
-    const text = encodeURIComponent(lines.join("\n"));
-    const url = `https://wa.me/${WHATS_PHONE}?text=${text}`;
-    window.open(url, "_blank");
-  });
-
-  // =========================
-  // HUMAN SUPPORT (Whats)
-  // =========================
-  function openWhatsAppHuman(){
-    const text = encodeURIComponent(`Olá! Quero atendimento humano na ${STORE_NAME}.`);
-    window.open(`https://wa.me/${WHATS_PHONE}?text=${text}`, "_blank");
-  }
-  $("#btnHumanTop").addEventListener("click", openWhatsAppHuman);
-  $("#btnHumanHero").addEventListener("click", openWhatsAppHuman);
-  $("#btnHumanFloat").addEventListener("click", openWhatsAppHuman);
-
-  // =========================
-  // SEARCH + FILTERS
-  // =========================
-  $("#q").addEventListener("input", (e)=>{ q = e.target.value; render(); });
-
-  $("#chips").addEventListener("click", (e)=>{
-    const btn = e.target.closest(".chip");
-    if(!btn) return;
-    $$(".chip", $("#chips")).forEach(x=>x.classList.remove("active"));
-    btn.classList.add("active");
-    cat = btn.dataset.cat;
-    render();
-  });
-
-  $("#btnClear").addEventListener("click", ()=>{
-    cat = "all";
-    q = "";
-    $("#q").value = "";
-    $$(".chip", $("#chips")).forEach(x=>x.classList.toggle("active", x.dataset.cat==="all"));
-    render();
-    window.scrollTo({top:0, behavior:"smooth"});
-  });
-
-  $("#btnGoProducts").addEventListener("click", ()=>{
-    $("#productsAnchor").scrollIntoView({behavior:"smooth", block:"start"});
-  });
-
-  // Grid actions: buy/details + thumb click
-  grid.addEventListener("click", (e)=>{
-    const buyId = e.target.closest("[data-buy]")?.dataset?.buy;
-    const detId = e.target.closest("[data-details]")?.dataset?.details;
-
-    const card = e.target.closest(".card");
-    const thumb = e.target.closest(".thumb");
-
-    if (buyId){
-      addToCart(buyId, 1);
-      updateCartUI();
-      openCart();
-      return;
-    }
-    if (detId){
-      const p = products.find(x=>x.id===detId);
-      if (p) openModal(p);
-      return;
-    }
-    if (thumb && card){
-      const id = card.dataset.id;
-      const p = products.find(x=>x.id===id);
-      if (p) openModal(p);
-      return;
-    }
-  });
-
-  grid.addEventListener("keydown", (e)=>{
-    if (e.key !== "Enter") return;
-    const thumb = e.target.closest(".thumb");
-    const card = e.target.closest(".card");
-    if (thumb && card){
-      const p = products.find(x=>x.id===card.dataset.id);
-      if (p) openModal(p);
-    }
-  });
-
-  // =========================
-  // REVIEWS (0–5 stars + comments)
-  // =========================
-  const rateWrap = $("#rateWrap");
-  const reviewCards = $("#reviewCards");
-
-  let starSite = 0;
-  let starStore = 0;
-
-  function starsRow(containerId, onPick){
-    const el = $(containerId);
-    el.innerHTML = "";
-    for (let i=0;i<=5;i++){
-      const b = document.createElement("button");
-      b.className = "starBtn";
-      b.type = "button";
-      b.textContent = i;
-      b.title = `${i} estrela(s)`;
-      b.addEventListener("click", ()=>{
-        onPick(i);
-        // repaint
-        $$(".starBtn", el).forEach((x, idx)=>x.classList.toggle("on", idx===i));
-      });
-      el.appendChild(b);
-    }
-    // default 0 selected
-    $$(".starBtn", el)[0].classList.add("on");
-  }
-
-  starsRow("#starsSite", (v)=> starSite = v);
-  starsRow("#starsStore", (v)=> starStore = v);
-
-  function openRate(){
-    rateWrap.classList.add("on");
-    rateWrap.setAttribute("aria-hidden","false");
-  }
-  function closeRate(){
-    rateWrap.classList.remove("on");
-    rateWrap.setAttribute("aria-hidden","true");
-  }
-
-  $("#btnRate").addEventListener("click", openRate);
-  $("#btnRate2").addEventListener("click", openRate);
-  $("#rateClose").addEventListener("click", closeRate);
-  rateWrap.addEventListener("click", (e)=>{ if(e.target===rateWrap) closeRate(); });
-
-  function loadReviews(){
-    return loadJSON("cm_reviews", []);
-  }
-  function saveReviews(list){
-    saveJSON("cm_reviews", list);
-  }
-
-  function renderReviews(){
-    const list = loadReviews().slice().reverse().slice(0, 10);
-    if (!list.length){
-      reviewCards.innerHTML = `
-        <div class="reviewCard" style="grid-column: span 12;">
-          <b>Sem avaliações ainda.</b>
-          <div class="muted" style="margin-top:6px">Seja o primeiro a avaliar o site e a loja física ⭐</div>
-        </div>
-      `;
-      return;
-    }
-    reviewCards.innerHTML = list.map(r => `
-      <div class="reviewCard">
-        <div class="reviewTop">
-          <div class="pill">Site: <b>${r.site}/5</b></div>
-          <div class="pill">Loja: <b>${r.store}/5</b></div>
-          <div class="spacer"></div>
-          <small>${escapeHtml(r.when)}</small>
-        </div>
-        <div style="margin-top:8px">
-          <b>${escapeHtml(r.name || "Cliente")}</b>
-          <div class="muted" style="margin-top:6px">${escapeHtml(r.text || "")}</div>
-        </div>
-      </div>
-    `).join("");
-  }
-
-  $("#rvSend").addEventListener("click", ()=>{
-    const name = ($("#rvName").value || "").trim();
-    const text = ($("#rvText").value || "").trim();
-
-    const entry = {
-      name,
-      text: text || "(sem comentário)",
-      site: clamp(starSite, 0, 5),
-      store: clamp(starStore, 0, 5),
-      when: new Date().toLocaleString("pt-BR")
-    };
-
-    const list = loadReviews();
-    list.push(entry);
-    saveReviews(list);
-
-    $("#rvName").value = "";
-    $("#rvText").value = "";
-    starSite = 0; starStore = 0;
-    // reset star UI (select 0)
-    ["#starsSite", "#starsStore"].forEach(sel=>{
-      const el = $(sel);
-      $$(".starBtn", el).forEach((x, idx)=>x.classList.toggle("on", idx===0));
-    });
-
-    renderReviews();
-    closeRate();
-    // tiny feedback
-    window.scrollTo({top: document.body.scrollHeight, behavior:"smooth"});
-  });
-
-  $("#rvClear").addEventListener("click", ()=>{
-    const ok = confirm("Tem certeza que quer apagar todas as avaliações salvas neste navegador?");
-    if(!ok) return;
-    saveReviews([]);
-    renderReviews();
-  });
-
-  // =========================
-  // UTIL
-  // =========================
-  function saveJSON(key, value){
-    localStorage.setItem(key, JSON.stringify(value));
-  }
-  function loadJSON(key, fallback){
-    try{
-      const v = localStorage.getItem(key);
-      return v ? JSON.parse(v) : fallback;
-    }catch{
-      return fallback;
-    }
-  }
-  function escapeHtml(s){
-    return String(s ?? "").replace(/[&<>"']/g, (c)=>({
-      "&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"
-    }[c]));
-  }
-  function escapeAttr(s){ return escapeHtml(s).replace(/"/g, "&quot;"); }
-
-  // =========================
-  // INIT
-  // =========================
-  $("#year").textContent = new Date().getFullYear();
-  updateCartUI();
-  render();
-  renderReviews();
-
-})();
+const products = [
+  {name:"Água Micelar de Camomila", img:"images/micelar-camomila.jpg"},
+  {name:"Bruma Fixadora Ácido Hialurônico", img:"images/bruma-200.jpg"},
+  {name:"Bruma Fixadora de Melancia", img:"images/bruma-melancia.jpg"},
+  {name:"Creme Área dos Olhos Banana", img:"images/creme-olhos-banana.jpg"},
+  {name:"Creme Área dos Olhos Pitaya", img:"images/creme-olhos-pitaya.jpg"},
+  {name:"Base Líquida Angels", img:"images/base-angel.jpg"},
+  {name:"Base Matte à Prova d’Água", img:"images/base-matte-45.jpg"},
+  {name:"Corretivo e Contorno", img:"images/corretivo-contorno.jpg"},
+  {name:"Blush Líquido", img:"images/blush-liquido.jpg"},
+  {name:"Batom Líquido Mood", img:"images/batom-mood.jpg"},
+  {name:"Blindagem 3 em 1", img:"images/blindagem-3em1.jpg"},
+  {name:"Cílios Postiços 6D", img:"images/cilios-6d.jpg"},
+  {name:"Cílios Postiços 8D", img:"images/cilios-8d.jpg"},
+  {name:"Cola de Cílios Transparente", img:"images/cola-cilios-7ml.jpg"},
+  {name:"Cola de Cílios à Prova d’Água", img:"images/cola-cilios-prova-agua-7ml.jpg"},
+  {name:"Boob Tape", img:"images/boob-tape.jpg"},
+  {name:"Colares Dourados Variados", img:"images/colares-dourados.jpg"},
+  {name:"Bobbie Goods Cards e Canetinhas", img:"images/bobbie-goods.jpg"}
+];
+
+const container = document.getElementById("products");
+
+products.forEach(p=>{
+  container.innerHTML += `
+    <div class="card">
+      <img src="${p.img}">
+      <h3>${p.name}</h3>
+      <div class="price">R$ 10,00</div>
+      <div class="buy">Quero esse 💖</div>
+    </div>
+  `;
+});
 </script>
 
-<!--
-========================================================
-COMO COLOCAR AS FOTOS (MUITO IMPORTANTE)
-========================================================
-
-1) Crie uma pasta "images" no mesmo lugar do index.html
-2) Coloque as imagens com EXATAMENTE estes nomes (pode copiar/colar a lista):
-
-images/micelar-camomila.jpg
-images/bruma-200.jpg
-images/bruma-melancia.jpg
-images/creme-olhos-banana.jpg
-images/creme-olhos-pitaya.jpg
-images/base-angel.jpg
-images/base-matte-45.jpg
-images/corretivo-contorno.jpg
-images/batom-mood.jpg
-images/blush-liquido.jpg
-images/blindagem-3em1.jpg
-images/cilios-6d.jpg
-images/cilios-8d.jpg
-images/cola-cilios-7ml.jpg
-images/cola-cilios-prova-agua-7ml.jpg
-images/bobbie-goods.jpg
-images/boob-tape.jpg
-images/colares-dourados.jpg
-images/faixa-pelucia.jpg
-images/massageador.jpg
-images/escova-desembaracadora.jpg
-images/escova-raquete.jpg
-images/kit-presilhas.jpg
-images/kit-coelho.jpg
-images/oculos-coracao.jpg
-images/presilha-laco-dourada.jpg
-
-Se faltar alguma imagem, o produto aparece, mas a foto ficará quebrada.
-========================================================
--->
 </body>
 </html>
