@@ -6,28 +6,61 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
+html{scroll-behavior:smooth}
 :root{
   --pink:#ff4f9a;
   --pink-dark:#e63b84;
   --green:#1abc9c;
-  --bg:#f6f6f6;
+  --bg:#f4f4f6;
   --card:#ffffff;
   --text:#333;
-  --muted:#777;
+  --border:#e5e5e5;
 }
-
-*{box-sizing:border-box;margin:0;padding:0;font-family:Arial,Helvetica,sans-serif}
-
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
 body{background:var(--bg);color:var(--text)}
 
 header{
   background:linear-gradient(135deg,var(--pink),var(--pink-dark));
   color:#fff;
-  padding:30px 15px;
   text-align:center;
+  padding:30px 15px;
 }
 
-.hero{text-align:center;padding:30px}
+.trust{
+  background:#fff;
+  text-align:center;
+  padding:12px;
+  font-size:14px;
+  border-bottom:1px solid #eee;
+}
+
+.container{max-width:1200px;margin:auto;padding:20px}
+
+.search input{
+  width:100%;
+  max-width:420px;
+  padding:12px;
+  border-radius:30px;
+  border:1px solid var(--border);
+  display:block;
+  margin:20px auto;
+}
+
+.categories{
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  margin-bottom:20px;
+  flex-wrap:wrap;
+}
+.categories button{
+  border:none;
+  background:#fff;
+  padding:10px 16px;
+  border-radius:30px;
+  box-shadow:0 5px 15px rgba(0,0,0,.1);
+  cursor:pointer;
+}
 
 .filters{text-align:center;margin-bottom:20px}
 .filters button{
@@ -44,64 +77,62 @@ header{
 
 .products{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:20px;
-  padding:20px;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:22px;
 }
 
 .card{
   background:#fff;
-  border-radius:16px;
+  border-radius:18px;
   box-shadow:0 10px 25px rgba(0,0,0,.08);
   overflow:hidden;
   position:relative;
-  animation:fadeUp .5s ease;
 }
 
-.card img{
-  width:100%;
-  height:200px;
-  object-fit:cover;
-}
-
-.card-content{padding:15px}
-
-.price{color:var(--green);font-weight:bold;margin:8px 0}
+.card img{width:100%;height:220px;object-fit:cover}
+.card-content{padding:16px}
+.price{color:var(--green);font-weight:bold}
 
 .badge{
   position:absolute;
-  top:10px;
-  left:10px;
+  top:12px;
+  left:12px;
   background:#ffcc00;
-  padding:5px 10px;
-  border-radius:12px;
+  padding:6px 10px;
+  border-radius:14px;
   font-size:12px;
 }
 
-.actions{display:flex;gap:8px;margin-top:10px}
-
+.actions{
+  display:flex;
+  gap:10px;
+  margin-top:10px;
+}
 .actions button{
   flex:1;
   border:none;
-  padding:8px;
+  padding:9px;
   border-radius:20px;
   cursor:pointer;
+  font-weight:bold;
+  transition:.3s;
 }
-
 .buy{background:var(--pink);color:#fff}
+.buy.added{background:#2ecc71}
 .details{background:#eee}
 
-#cart{
-  position:fixed;
-  right:0;top:0;
-  width:300px;
-  height:100%;
+.reviews,.faq{
   background:#fff;
-  box-shadow:-5px 0 20px rgba(0,0,0,.2);
-  padding:15px;
-  display:none;
-  flex-direction:column;
-  z-index:10;
+  border-radius:20px;
+  padding:25px;
+  box-shadow:0 10px 25px rgba(0,0,0,.08);
+  margin:30px auto;
+  max-width:800px;
+}
+
+.review-item{
+  border-top:1px solid var(--border);
+  padding:10px 0;
 }
 
 .modal{
@@ -116,15 +147,21 @@ header{
 .modal-content{
   background:#fff;
   padding:20px;
-  border-radius:15px;
-  width:300px;
+  border-radius:18px;
+  width:320px;
+  text-align:center;
 }
 
-.reviews{
-  background:#fff;
-  padding:20px;
-  margin:20px;
-  border-radius:15px;
+.top{
+  position:fixed;
+  bottom:80px;
+  right:20px;
+  background:#000;
+  color:#fff;
+  padding:12px;
+  border-radius:50%;
+  cursor:pointer;
+  display:none;
 }
 
 .whats{
@@ -133,14 +170,11 @@ header{
   right:20px;
   background:#25d366;
   color:#fff;
-  padding:15px 18px;
+  padding:15px 20px;
   border-radius:50px;
   cursor:pointer;
-}
-
-@keyframes fadeUp{
-  from{opacity:0;transform:translateY(20px)}
-  to{opacity:1;transform:translateY(0)}
+  font-weight:bold;
+  box-shadow:0 10px 30px rgba(0,0,0,.3);
 }
 </style>
 </head>
@@ -149,77 +183,100 @@ header{
 
 <header>
 <h1>Cintia Makess</h1>
-<p>Tudo por R$ 10,00 • Atendimento humano</p>
+<p>Tudo por R$10 • Atendimento humano</p>
 </header>
 
-<section class="hero">
-<h2>Escolha seus produtos</h2>
-</section>
+<div class="trust">
+✅ Preço único R$10 • 💬 Atendimento humano • 💖 Beleza para todas as idades
+</div>
+
+<div class="container">
+
+<div class="reviews">
+<h2>⭐ Quem já comprou, aprovou</h2>
+<div class="review-item">⭐⭐⭐⭐⭐ “Amei! Atendimento maravilhoso.” – Maria</div>
+<div class="review-item">⭐⭐⭐⭐⭐ “Produtos lindos e preço justo.” – Ana</div>
+<div class="review-item">⭐⭐⭐⭐⭐ “Compro sempre!” – Juliana</div>
+</div>
+
+<div class="search">
+<input id="search" placeholder="🔍 Pesquisar produtos">
+</div>
+
+<div class="categories">
+<button onclick="setCat('all')">🛍 Todos</button>
+<button onclick="setCat('Maquiagem')">💄 Maquiagem</button>
+<button onclick="setCat('Skincare')">💆 Skincare</button>
+<button onclick="setCat('Acessórios')">💍 Acessórios</button>
+<button onclick="setCat('Papelaria')">📒 Papelaria</button>
+</div>
 
 <div class="filters">
-<button class="active" onclick="setCat('all')">Todos</button>
-<button onclick="setCat('Maquiagem')">Maquiagem</button>
-<button onclick="setCat('Skincare')">Skincare</button>
-<button onclick="setCat('Acessórios')">Acessórios</button>
-<button onclick="setCat('Papelaria')">Papelaria</button>
+<button class="active" onclick="setOrder('all')">🆕 Todos</button>
+<button onclick="setOrder('best')">🔥 Mais vendidos</button>
+<button onclick="setOrder('low')">⚠ Últimas unidades</button>
 </div>
 
 <div class="products" id="products"></div>
 
-<div id="cart">
-<h3>Carrinho</h3>
-<div id="cartItems"></div>
-<p>Total: <strong>R$ <span id="total">0</span></strong></p>
-<button onclick="closeCart()">Fechar</button>
+<div class="faq">
+<h2>❓ Dúvidas frequentes</h2>
+<p><strong>Como comprar?</strong><br>Escolha os produtos e fale conosco no WhatsApp.</p>
+<p><strong>Tem pagamento online?</strong><br>Não. Atendimento humano.</p>
+<p><strong>Onde retiro?</strong><br>Combinamos pelo WhatsApp.</p>
+</div>
+
 </div>
 
 <div class="modal" id="modal">
 <div class="modal-content">
 <h3 id="mName"></h3>
 <p id="mDesc"></p>
-<p><strong>R$ 10,00</strong></p>
-<button onclick="addCart(current)">Comprar</button>
+<p id="mCombo"></p>
 <button onclick="closeModal()">Fechar</button>
 </div>
 </div>
 
-<div class="reviews">
-<h3>Avaliações</h3>
-<input id="revText" placeholder="Comentário">
-<select id="revStar">
-<option>5</option><option>4</option><option>3</option><option>2</option><option>1</option>
-</select>
-<button onclick="addReview()">Enviar</button>
-<div id="reviewList"></div>
-</div>
+<div class="top" id="top" onclick="window.scrollTo(0,0)">🔝</div>
 
-<div class="whats" onclick="openWhats()">💬 WhatsApp</div>
+<div class="whats" onclick="openWhats()">💬 Atendimento humano</div>
 
 <script>
 const products=[
- {id:1,name:"Cílios Postiços 6D",cat:"Maquiagem",stock:2,desc:"Volume e definição",img:"images/cilios-6d.jpg"},
- {id:2,name:"Cílios Postiços 8D",cat:"Maquiagem",stock:2,desc:"Volume intenso",img:"images/cilios-8d.jpg"},
- {id:3,name:"Bruma Melancia",cat:"Skincare",stock:6,desc:"Refrescante",img:"images/bruma-melancia.jpg"},
- {id:4,name:"Água Micelar Camomila",cat:"Skincare",stock:10,desc:"Limpeza suave",img:"images/micelar-camomila.jpg"},
- {id:5,name:"Boob Tape",cat:"Acessórios",stock:1,desc:"Sustentação",img:"images/boob-tape.jpg"},
- {id:6,name:"Bobbie Goods",cat:"Papelaria",stock:4,desc:"Criativo",img:"images/bobbie-goods.jpg"}
+{id:1,name:"Cílios Postiços 6D",cat:"Maquiagem",stock:2,best:true,combo:"Cola para cílios",desc:"Volume e definição",img:"images/cilios-6d.jpg"},
+{id:2,name:"Bruma Melancia",cat:"Skincare",stock:6,best:true,combo:"Base líquida",desc:"Refrescante",img:"images/bruma-melancia.jpg"},
+{id:3,name:"Batom Mood",cat:"Maquiagem",stock:10,best:true,combo:"Blush líquido",desc:"Cor linda",img:"images/batom-mood.jpg"},
+{id:4,name:"Água Micelar Camomila",cat:"Skincare",stock:10,combo:"Creme facial",desc:"Limpeza suave",img:"images/micelar-camomila.jpg"},
+{id:5,name:"Boob Tape",cat:"Acessórios",stock:1,combo:"Colar dourado",desc:"Sustentação",img:"images/boob-tape.jpg"},
+{id:6,name:"Bobbie Goods",cat:"Papelaria",stock:4,combo:"Canetinhas",desc:"Criativo",img:"images/bobbie-goods.jpg"}
 ];
 
-let cart={},current=null,filter="all";
+let order=localStorage.order||"all";
+let query=localStorage.query||"";
+let cat=localStorage.cat||"all";
+
+search.value=query;
+const box=document.getElementById("products");
 
 function render(){
-const box=document.getElementById("products");
 box.innerHTML="";
-products.filter(p=>filter==="all"||p.cat===filter).forEach(p=>{
+let list=[...products];
+
+if(cat!=="all") list=list.filter(p=>p.cat===cat);
+if(order==="best") list=list.filter(p=>p.best);
+if(order==="low") list=list.filter(p=>p.stock<=2);
+list=list.filter(p=>p.name.toLowerCase().includes(query));
+
+list.forEach(p=>{
 box.innerHTML+=`
 <div class="card">
-${p.stock<=2?'<div class="badge">Últimas</div>':''}
+${p.stock<=2?'<div class="badge">⚠ Últimas unidades</div>':''}
 <img src="${p.img}">
 <div class="card-content">
 <h3>${p.name}</h3>
 <div class="price">R$ 10,00</div>
 <div class="actions">
-<button class="buy" onclick="addCart(${p.id})">Comprar</button>
+<button class="buy" onclick="addCart(this)">Quero esse 💖</button>
 <button class="details" onclick="openModal(${p.id})">Detalhes</button>
 </div>
 </div>
@@ -227,38 +284,42 @@ ${p.stock<=2?'<div class="badge">Últimas</div>':''}
 });
 }
 
-function addCart(id){
-cart[id]=(cart[id]||0)+1;
-updateCart();
+function addCart(btn){
+btn.classList.add("added");
+btn.innerText="Adicionado 💖";
+setTimeout(()=>{
+btn.classList.remove("added");
+btn.innerText="Quero esse 💖";
+},1000);
 }
 
-function updateCart(){
-document.getElementById("cart").style.display="flex";
-const items=document.getElementById("cartItems");
-items.innerHTML="";
-let total=0;
-for(let id in cart){
-const p=products.find(x=>x.id==id);
-items.innerHTML+=`<div>${p.name} x${cart[id]}</div>`;
-total+=cart[id]*10;
-}
-document.getElementById("total").innerText=total;
-}
+function setOrder(o){order=o;localStorage.order=o;render()}
+function setCat(c){cat=c;localStorage.cat=c;render()}
 
-function closeCart(){document.getElementById("cart").style.display="none"}
+search.addEventListener("input",e=>{
+query=e.target.value.toLowerCase();
+localStorage.query=query;
+render();
+});
+
 function openModal(id){
-current=id;
-const p=products.find(x=>x.id==id);
-document.getElementById("mName").innerText=p.name;
-document.getElementById("mDesc").innerText=p.desc;
-document.getElementById("modal").style.display="flex";
+const p=products.find(x=>x.id===id);
+mName.innerText=p.name;
+mDesc.innerText=p.desc;
+mCombo.innerHTML=`💡 Combine com: <strong>${p.combo}</strong>`;
+modal.style.display="flex";
 }
-function closeModal(){document.getElementById("modal").style.display="none"}
-function setCat(c){filter=c;render()}
-function openWhats(){window.open("https://wa.me/5515974072640")}
-function addReview(){
-reviewList.innerHTML+=`<p>⭐ ${revStar.value} - ${revText.value}</p>`;
+function closeModal(){modal.style.display="none"}
+
+window.addEventListener("scroll",()=>{
+top.style.display=window.scrollY>300?"block":"none";
+});
+
+function openWhats(){
+const msg=encodeURIComponent("Oi 😊 Vim pelo site da Cintia Makess e gostaria de ajuda.");
+window.open("https://wa.me/5515974072640?text="+msg);
 }
+
 render();
 </script>
 
