@@ -2,325 +2,217 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<title>Cintia Makess • Tudo por R$10</title>
+<title>Cíntia Makes</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-html{scroll-behavior:smooth}
 :root{
-  --pink:#ff4f9a;
-  --pink-dark:#e63b84;
-  --green:#1abc9c;
-  --bg:#f4f4f6;
-  --card:#ffffff;
-  --text:#333;
-  --border:#e5e5e5;
+  --rosa:#ff4da6;
+  --cinza:#f5f5f5;
+  --verde:#25D366;
 }
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
-body{background:var(--bg);color:var(--text)}
-
+body{
+  margin:0;
+  font-family:Arial, Helvetica, sans-serif;
+  background:#fff;
+}
 header{
-  background:linear-gradient(135deg,var(--pink),var(--pink-dark));
-  color:#fff;
+  padding:20px;
   text-align:center;
-  padding:30px 15px;
+  font-size:26px;
+  font-weight:bold;
+  color:var(--rosa);
 }
-
-.trust{
-  background:#fff;
+.search{
+  padding:15px;
   text-align:center;
-  padding:12px;
-  font-size:14px;
-  border-bottom:1px solid #eee;
 }
-
-.container{max-width:1200px;margin:auto;padding:20px}
-
 .search input{
-  width:100%;
-  max-width:420px;
+  width:90%;
+  max-width:400px;
   padding:12px;
-  border-radius:30px;
-  border:1px solid var(--border);
-  display:block;
-  margin:20px auto;
+  border-radius:25px;
+  border:1px solid #ccc;
 }
-
-.categories{
-  display:flex;
-  justify-content:center;
-  gap:12px;
-  margin-bottom:20px;
-  flex-wrap:wrap;
-}
-.categories button{
-  border:none;
-  background:#fff;
-  padding:10px 16px;
-  border-radius:30px;
-  box-shadow:0 5px 15px rgba(0,0,0,.1);
-  cursor:pointer;
-}
-
-.filters{text-align:center;margin-bottom:20px}
-.filters button{
-  margin:5px;
-  padding:8px 14px;
-  border:none;
-  border-radius:20px;
-  cursor:pointer;
-}
-.filters button.active{
-  background:var(--pink);
-  color:#fff;
-}
-
 .products{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:22px;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+  padding:20px;
 }
-
 .card{
   background:#fff;
-  border-radius:18px;
-  box-shadow:0 10px 25px rgba(0,0,0,.08);
-  overflow:hidden;
-  position:relative;
-}
-
-.card img{width:100%;height:220px;object-fit:cover}
-.card-content{padding:16px}
-.price{color:var(--green);font-weight:bold}
-
-.badge{
-  position:absolute;
-  top:12px;
-  left:12px;
-  background:#ffcc00;
-  padding:6px 10px;
-  border-radius:14px;
-  font-size:12px;
-}
-
-.actions{
-  display:flex;
-  gap:10px;
-  margin-top:10px;
-}
-.actions button{
-  flex:1;
-  border:none;
-  padding:9px;
-  border-radius:20px;
-  cursor:pointer;
-  font-weight:bold;
+  border-radius:15px;
+  box-shadow:0 4px 10px rgba(0,0,0,.1);
+  padding:15px;
+  text-align:center;
   transition:.3s;
 }
-.buy{background:var(--pink);color:#fff}
-.buy.added{background:#2ecc71}
-.details{background:#eee}
-
-.reviews,.faq{
-  background:#fff;
+.card:hover{transform:translateY(-5px);}
+.card img{
+  width:100%;
+  height:180px;
+  object-fit:cover;
+  border-radius:10px;
+}
+.price{
+  color:green;
+  font-weight:bold;
+}
+button{
+  margin-top:10px;
+  padding:10px 15px;
+  border:none;
   border-radius:20px;
-  padding:25px;
-  box-shadow:0 10px 25px rgba(0,0,0,.08);
-  margin:30px auto;
-  max-width:800px;
-}
-
-.review-item{
-  border-top:1px solid var(--border);
-  padding:10px 0;
-}
-
-.modal{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.6);
-  display:none;
-  align-items:center;
-  justify-content:center;
-}
-
-.modal-content{
-  background:#fff;
-  padding:20px;
-  border-radius:18px;
-  width:320px;
-  text-align:center;
-}
-
-.top{
-  position:fixed;
-  bottom:80px;
-  right:20px;
-  background:#000;
-  color:#fff;
-  padding:12px;
-  border-radius:50%;
   cursor:pointer;
-  display:none;
 }
-
-.whats{
+.btn{
+  background:var(--rosa);
+  color:#fff;
+}
+.cart-btn{
   position:fixed;
   bottom:20px;
   right:20px;
-  background:#25d366;
+  background:var(--verde);
   color:#fff;
   padding:15px 20px;
   border-radius:50px;
+  font-weight:bold;
+}
+.modal{
+  position:fixed;
+  top:0;left:0;
+  width:100%;height:100%;
+  background:rgba(0,0,0,.6);
+  display:none;
+  justify-content:center;
+  align-items:center;
+}
+.modal-content{
+  background:#fff;
+  padding:20px;
+  border-radius:15px;
+  max-width:400px;
+  width:90%;
+}
+.close{
+  float:right;
   cursor:pointer;
   font-weight:bold;
-  box-shadow:0 10px 30px rgba(0,0,0,.3);
+}
+.cart{
+  position:fixed;
+  top:0;
+  right:-100%;
+  width:320px;
+  height:100%;
+  background:#fff;
+  box-shadow:-3px 0 10px rgba(0,0,0,.2);
+  padding:20px;
+  transition:.4s;
+}
+.cart.open{right:0;}
+.cart h2{text-align:center;}
+.cart-item{
+  display:flex;
+  justify-content:space-between;
+  margin-bottom:10px;
 }
 </style>
 </head>
 
 <body>
 
-<header>
-<h1>Cintia Makess</h1>
-<p>Tudo por R$10 • Atendimento humano</p>
-</header>
-
-<div class="trust">
-✅ Preço único R$10 • 💬 Atendimento humano • 💖 Beleza para todas as idades
-</div>
-
-<div class="container">
-
-<div class="reviews">
-<h2>⭐ Quem já comprou, aprovou</h2>
-<div class="review-item">⭐⭐⭐⭐⭐ “Amei! Atendimento maravilhoso.” – Maria</div>
-<div class="review-item">⭐⭐⭐⭐⭐ “Produtos lindos e preço justo.” – Ana</div>
-<div class="review-item">⭐⭐⭐⭐⭐ “Compro sempre!” – Juliana</div>
-</div>
+<header>Cíntia Makes 💄</header>
 
 <div class="search">
-<input id="search" placeholder="🔍 Pesquisar produtos">
-</div>
-
-<div class="categories">
-<button onclick="setCat('all')">🛍 Todos</button>
-<button onclick="setCat('Maquiagem')">💄 Maquiagem</button>
-<button onclick="setCat('Skincare')">💆 Skincare</button>
-<button onclick="setCat('Acessórios')">💍 Acessórios</button>
-<button onclick="setCat('Papelaria')">📒 Papelaria</button>
-</div>
-
-<div class="filters">
-<button class="active" onclick="setOrder('all')">🆕 Todos</button>
-<button onclick="setOrder('best')">🔥 Mais vendidos</button>
-<button onclick="setOrder('low')">⚠ Últimas unidades</button>
+  <input type="text" placeholder="Pesquisar produtos..." onkeyup="searchProduct(this.value)">
 </div>
 
 <div class="products" id="products"></div>
 
-<div class="faq">
-<h2>❓ Dúvidas frequentes</h2>
-<p><strong>Como comprar?</strong><br>Escolha os produtos e fale conosco no WhatsApp.</p>
-<p><strong>Tem pagamento online?</strong><br>Não. Atendimento humano.</p>
-<p><strong>Onde retiro?</strong><br>Combinamos pelo WhatsApp.</p>
-</div>
+<div class="cart-btn" onclick="toggleCart()">🛒 Carrinho</div>
 
+<div class="cart" id="cart">
+<h2>Carrinho</h2>
+<div id="cartItems"></div>
+<p><b>Total:</b> R$ <span id="total">0</span></p>
+<button class="btn" onclick="finish()">Finalizar no WhatsApp</button>
 </div>
 
 <div class="modal" id="modal">
 <div class="modal-content">
+<span class="close" onclick="closeModal()">X</span>
+<img id="mImg" style="width:100%;border-radius:10px">
 <h3 id="mName"></h3>
 <p id="mDesc"></p>
-<p id="mCombo"></p>
-<button onclick="closeModal()">Fechar</button>
+<p><b>Estoque:</b> <span id="mStock"></span></p>
+<p class="price">R$ 10,00</p>
+<button class="btn" onclick="addToCart()">Adicionar ao carrinho</button>
 </div>
 </div>
-
-<div class="top" id="top" onclick="window.scrollTo(0,0)">🔝</div>
-
-<div class="whats" onclick="openWhats()">💬 Atendimento humano</div>
 
 <script>
+const whatsapp="5515974072640";
+let currentProduct=null;
+let cart=[];
 const products=[
-{id:1,name:"Cílios Postiços 6D",cat:"Maquiagem",stock:2,best:true,combo:"Cola para cílios",desc:"Volume e definição",img:"images/cilios-6d.jpg"},
-{id:2,name:"Bruma Melancia",cat:"Skincare",stock:6,best:true,combo:"Base líquida",desc:"Refrescante",img:"images/bruma-melancia.jpg"},
-{id:3,name:"Batom Mood",cat:"Maquiagem",stock:10,best:true,combo:"Blush líquido",desc:"Cor linda",img:"images/batom-mood.jpg"},
-{id:4,name:"Água Micelar Camomila",cat:"Skincare",stock:10,combo:"Creme facial",desc:"Limpeza suave",img:"images/micelar-camomila.jpg"},
-{id:5,name:"Boob Tape",cat:"Acessórios",stock:1,combo:"Colar dourado",desc:"Sustentação",img:"images/boob-tape.jpg"},
-{id:6,name:"Bobbie Goods",cat:"Papelaria",stock:4,combo:"Canetinhas",desc:"Criativo",img:"images/bobbie-goods.jpg"}
+{name:"Delineador VIP Rosa 8ml",stock:2,desc:"Delineador rosa intenso, longa duração.",img:"images/delineador-rosa.jpg"},
+{name:"Delineador Ultra Black 8ml",stock:3,desc:"Preto intenso, super pigmentado.",img:"images/delineador-preto.jpg"},
+{name:"Delineador Intransferível 3,5ml",stock:9,desc:"Não borra, não transfere.",img:"images/delineador-intransferivel.jpg"}
 ];
 
-let order=localStorage.order||"all";
-let query=localStorage.query||"";
-let cat=localStorage.cat||"all";
-
-search.value=query;
-const box=document.getElementById("products");
-
-function render(){
-box.innerHTML="";
-let list=[...products];
-
-if(cat!=="all") list=list.filter(p=>p.cat===cat);
-if(order==="best") list=list.filter(p=>p.best);
-if(order==="low") list=list.filter(p=>p.stock<=2);
-list=list.filter(p=>p.name.toLowerCase().includes(query));
-
-list.forEach(p=>{
-box.innerHTML+=`
+function render(list){
+const p=document.getElementById("products");
+p.innerHTML="";
+list.forEach((x,i)=>{
+p.innerHTML+=`
 <div class="card">
-${p.stock<=2?'<div class="badge">⚠ Últimas unidades</div>':''}
-<img src="${p.img}">
-<div class="card-content">
-<h3>${p.name}</h3>
-<div class="price">R$ 10,00</div>
-<div class="actions">
-<button class="buy" onclick="addCart(this)">Quero esse 💖</button>
-<button class="details" onclick="openModal(${p.id})">Detalhes</button>
-</div>
-</div>
+<img src="${x.img}">
+<h4>${x.name}</h4>
+<p class="price">R$ 10,00</p>
+<button class="btn" onclick="openModal(${i})">Ver mais</button>
 </div>`;
 });
 }
+render(products);
 
-function addCart(btn){
-btn.classList.add("added");
-btn.innerText="Adicionado 💖";
-setTimeout(()=>{
-btn.classList.remove("added");
-btn.innerText="Quero esse 💖";
-},1000);
-}
-
-function setOrder(o){order=o;localStorage.order=o;render()}
-function setCat(c){cat=c;localStorage.cat=c;render()}
-
-search.addEventListener("input",e=>{
-query=e.target.value.toLowerCase();
-localStorage.query=query;
-render();
-});
-
-function openModal(id){
-const p=products.find(x=>x.id===id);
-mName.innerText=p.name;
-mDesc.innerText=p.desc;
-mCombo.innerHTML=`💡 Combine com: <strong>${p.combo}</strong>`;
+function openModal(i){
+currentProduct=products[i];
+mImg.src=currentProduct.img;
+mName.innerText=currentProduct.name;
+mDesc.innerText=currentProduct.desc;
+mStock.innerText=currentProduct.stock;
 modal.style.display="flex";
 }
-function closeModal(){modal.style.display="none"}
-
-window.addEventListener("scroll",()=>{
-top.style.display=window.scrollY>300?"block":"none";
-});
-
-function openWhats(){
-const msg=encodeURIComponent("Oi 😊 Vim pelo site da Cintia Makess e gostaria de ajuda.");
-window.open("https://wa.me/5515974072640?text="+msg);
+function closeModal(){modal.style.display="none";}
+function addToCart(){
+cart.push(currentProduct);
+updateCart();
+closeModal();
 }
-
-render();
+function toggleCart(){
+cartBox.classList.toggle("open");
+}
+function updateCart(){
+cartItems.innerHTML="";
+let total=0;
+cart.forEach(p=>{
+total+=10;
+cartItems.innerHTML+=`<div class="cart-item"><span>${p.name}</span><span>R$10</span></div>`;
+});
+document.getElementById("total").innerText=total;
+}
+function finish(){
+let msg="Olá, gostaria de comprar:%0A";
+cart.forEach(p=>msg+=`- ${p.name}%0A`);
+msg+=`Total: R$ ${cart.length*10}`;
+window.open(`https://wa.me/${whatsapp}?text=${msg}`);
+}
+function searchProduct(v){
+render(products.filter(p=>p.name.toLowerCase().includes(v.toLowerCase())));
+}
 </script>
 
 </body>
