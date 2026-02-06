@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Produto • Cintia Makess</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body{margin:0;font-family:Arial;background:#f5f5f5}
+.container{max-width:600px;margin:auto;padding:20px}
+img{width:100%;border-radius:15px}
+.price{color:#2ecc71;font-weight:bold;font-size:20px}
+button{border:none;padding:12px;border-radius:25px;cursor:pointer;width:100%;margin-top:10px}
+.buy{background:#ff4f9a;color:#fff}
+.back{background:#ddd}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<img id="img">
+<h2 id="name"></h2>
+<p class="price">R$ 10,00</p>
+<p><b>Estoque:</b> <span id="stock"></span></p>
+<p id="desc"></p>
+<button class="buy" onclick="add()">Adicionar ao carrinho</button>
+<button class="back" onclick="back()">Voltar</button>
+</div>
+
+<script>
+const products=[
+{id:1,name:"Delineador VIP Rosa 8ml",stock:2,desc:"Delineador rosa intenso, longa duração.",img:"images/delineador-rosa.jpg"},
+{id:2,name:"Delineador Ultra Black 8ml",stock:3,desc:"Preto intenso, super pigmentado.",img:"images/delineador-preto.jpg"},
+{id:3,name:"Delineador Intransferível 3,5ml",stock:9,desc:"Não borra, não transfere.",img:"images/delineador-intransferivel.jpg"}
+];
+
+const id=new URLSearchParams(location.search).get("id");
+const p=products.find(x=>x.id==id);
+let cart=JSON.parse(localStorage.getItem("cart"))||{};
+
+img.src=p.img;
+name.innerText=p.name;
+stock.innerText=p.stock;
+desc.innerText=p.desc;
+
+function add(){
+cart[p.id]=(cart[p.id]||0)+1;
+localStorage.setItem("cart",JSON.stringify(cart));
+alert("Produto adicionado ao carrinho 💖");
+}
+
+function back(){
+window.location.href="index.html";
+}
+</script>
+
+</body>
+</html>
